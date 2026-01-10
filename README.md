@@ -1,179 +1,80 @@
 # Context Management Bootstrap Kit
 
-**Version:** 1.2  
+**Version:** 1.3  
 **Last Updated:** 2026-01-10  
 **Purpose:** Reusable context management framework for AI-assisted development environments
 
 ---
 
-## Overview
+## What Is This?
 
-This bootstrap kit provides a complete context management framework extracted from proven agent-based development workflows. It defines agent roles, documentation contracts, workflow patterns, and system prompts that create a sustainable, maintainable AI-assisted development environment.
+The **Context Management Bootstrap Kit** is a framework that helps you work effectively with AI coding assistants by keeping everyone (you and your AI agents) on the same page. Instead of struggling with context drift, outdated documentation, and agents that forget what they're supposed to do, this kit gives you a structured system where everything stays in sync.
 
-## What This Kit Provides
+**In simple terms:** It's a set of rules, workflows, and templates that turn your AI assistant into a reliable development partner. You get four specialized "agent roles" (like having separate team members for planning, coding, system reviews, and guidance), clear workflows for how they work together, and automatic documentation that stays up-to-date with your codebase.
 
-- **Four core agent roles** with explicit boundaries and responsibilities
-- **Documentation contracts** that ensure context stays current and accurate
-- **Project context folder** for storing project-specific domain knowledge, business rules, and requirements
-- **Workflow patterns** for agent collaboration and handoffs
-- **System prompts** that enforce role fidelity and prevent scope drift
-- **Quality assurance system** with mandatory quality gates and validation checkpoints
-- **Maintenance rules** that keep documentation aligned with reality
-- **Catch-up process** for syncing manual edits with agents (flexible workflow)
-- **Project brief template** for structured intent capture
+## How Do You Use It?
 
-## ⚠️ Context Drift and Manual Editing
+**The basic workflow is simple:**
 
-### The Reality
+1. **Set up the framework** (one-time): Copy the kit, configure your AI agents with the provided prompts, and customize templates for your project.
 
-**You can manually edit code, but you are responsible for context drift.**
+2. **Request features or changes:** Tell THINKING_BUDDY what you want. They'll ask clarifying questions and create a detailed "brief" (executable specification) for you to review.
 
-Manual edits create a gap between what you know and what agents know. This gap (context drift) breaks the context management system if not addressed.
+3. **Review and approve:** You review the brief before any code is written. This is your checkpoint to ensure everything is correct.
 
-**The Process:**
+4. **Implementation:** CODING_BUDDY takes the approved brief and implements it, following quality standards and updating documentation automatically.
 
-- **Before manual edits:** If something looks wrong, consult CONTEXT_STEWARD first to understand context
-- Manual edits are OK for small, isolated changes (after checking context if it looks wrong)
-- After manual edits: Request catch-up brief to sync context
-- Briefs ensure related code/docs are updated
-- Don't let manual edits accumulate
+5. **Ongoing maintenance:** SYSTEM_BUDDY proactively reviews your system health and suggests improvements. CONTEXT_STEWARD helps you understand what's happening when things are unclear.
 
-**Your Responsibility:**
+**That's it!** The framework handles the coordination, ensures quality gates are met, keeps documentation current, and prevents scope creep. You just provide direction and review checkpoints.
 
-- **Check context first:** If code looks wrong, ask CONTEXT_STEWARD why it exists before editing
-- You're responsible for context drift when you manually edit
-- Always request catch-up brief after manual edits
-- Use briefs for features and significant changes
-- Balance: Speed when appropriate, sync to maintain context
-
-**See `docs/RULES.md` for complete rules, risk assessment, and catch-up processes.**
+**Manual edits?** They're fine! Just request a "catch-up brief" afterward to sync everything back up. The system is flexible, not rigid.
 
 ---
 
-## Critical Distinction
-
-**IMPORTANT:** This bootstrap kit is a **meta-framework** that provides structure for documenting YOUR ACTUAL PROJECT.
-
-The templates (`USER_GUIDE.md` and `SYSTEM_SUMMARY.md`) are designed to document YOUR PRODUCT/SYSTEM, not the bootstrap kit itself.
-
-**Example:** When building a webshop:
-
-- `USER_GUIDE.md` describes how customers use the webshop (browsing, shopping cart, checkout)
-- `SYSTEM_SUMMARY.md` describes the webshop's architecture (frontend, backend, database, payment integration)
-
-These documents do NOT describe the context management framework or agent roles—they document your actual project that uses the framework.
-
-The framework itself is documented in:
-
-- `docs/agents/` - Agent specifications (framework components)
-- `docs/WORKFLOW.md` - Workflow patterns (framework processes)
-- `docs/prompts/` - System prompts (framework configuration)
-
-**Always replace `[YOUR PROJECT NAME]` placeholders with your actual project name and customize all example content.**
-
-## Project Context Folder
-
-**IMPORTANT:** Store all project-specific context in the `docs/project-context/` folder.
-
-This dedicated folder is where you store project-specific domain knowledge, business rules, requirements, specifications, and any other contextual information that agents need to understand your project.
-
-### ⚠️ READ-ONLY CONTEXT (Critical)
-
-**This folder is READ-ONLY by default. Agents will NOT maintain or update files in this folder unless explicitly asked.**
-
-- **Agents read from this folder** to understand project context, business rules, domain knowledge, and requirements
-- **Agents do NOT automatically update** files in this folder
-- **If you want agents to update project context**, you must explicitly request it in a brief or task
-- **This is reference material** - like external documentation that agents consult but don't modify
-
-Files in `docs/project-context/` are treated as authoritative reference sources, similar to third-party documentation. Agents use them to inform decisions and understand constraints, but they remain static unless you explicitly request updates.
-
-### What to Store Here
-
-- **Domain requirements and business rules** - Business logic, domain-specific terminology, compliance requirements
-- **Project specifications** - API contracts, integration requirements, third-party service documentation
-- **Business context** - Target users, business model, success metrics, roadmap information
-- **Reference materials** - Requirements documents, design specifications, stakeholder notes (as PDF, DOCX, or Markdown)
-
-### File Formats
-
-- **Preferred:** Markdown (`.md`) files - Agents can read these directly
-- **Supported:** PDF (`.pdf`) and DOCX (`.docx`) files - Agents can extract text from these formats
-- **Organization:** Organize files by topic (e.g., `domain-requirements.md`, `api-specifications.md`, `integration-docs.pdf`)
-
-### How Agents Use This Folder
-
-All agents (THINKING_BUDDY, CODING_BUDDY, SYSTEM_BUDDY, CONTEXT_STEWARD) treat files in `docs/project-context/` as **read-only reference sources**. When agents need to understand:
-
-- Business rules or domain constraints → They reference files in this folder (read-only)
-- Integration requirements → They check project-context files (read-only)
-- Domain terminology or concepts → They consult this folder (read-only)
-- Project-specific requirements → They use this as source of truth (read-only)
-
-**Example:** When THINKING_BUDDY creates a brief for a new feature, it should check `docs/project-context/` for business rules that might constrain the implementation. When CODING_BUDDY implements, it should verify compliance with domain requirements stored here. Neither agent will modify these files unless explicitly requested.
-
-**If business rules or domain requirements change:**
-
-- You (the user) manually update files in `docs/project-context/` OR
-- Explicitly request an agent (via brief or task) to update specific files in this folder
-- Agents will not automatically detect and update stale project context
-
-The example file `docs/project-context/domain-requirements-EXAMPLE.md` is a placeholder that can be safely deleted. This folder is for storing all your project-specific context - domain knowledge, business rules, requirements, API specifications, etc. Create your own project-context files as needed. Files with "-EXAMPLE" suffix are automatically ignored by agents.
-
 ## Quick Start
 
-1. **Read the Rules (IMPORTANT):**
+1. **Read the essential rules first** (`docs/RULES.md`) - Understand how manual edits work and the catch-up process. This is important but not complicated.
 
-   - **Read `docs/RULES.md` first** - Understand context drift and the catch-up process
-   - Understand: You can manually edit, but must sync with agents afterward
-   - Learn the catch-up workflow for maintaining context consistency
+2. **Run setup** (`SETUP.md`) - Copy prompts to your AI assistant, customize templates, and populate project context.
 
-2. **Review the framework:**
+3. **Start using it** - Ask THINKING_BUDDY to create a brief for your first feature, review it, then have CODING_BUDDY implement it.
 
-   - **Framework documentation** (how the bootstrap kit works):
-     - Review `docs/WORKFLOW.md` for process patterns
-     - Review `docs/QUALITY_STANDARDS.md` for quality expectations
-     - Bookmark `docs/TROUBLESHOOTING.md` for when issues arise
-     - Review `docs/agents/` for agent specifications
-   - **Project documentation templates** (currently contain example content, will be customized for YOUR project):
-     - `docs/USER_GUIDE.md` - Template for documenting how users interact with YOUR system (currently has example/placeholder content - will be customized)
-     - `docs/system/SYSTEM_SUMMARY.md` - Template for documenting YOUR system's architecture and technical details (currently has example/placeholder content - will be customized)
-     - **Note:** These templates currently contain example content. After customization, agents will maintain these documents with information about YOUR project. They do NOT describe how the bootstrap kit works.
-   - **Populate `docs/project-context/`** with your project-specific domain knowledge (see SETUP.md)
+That's the basics! For detailed setup instructions, see `SETUP.md`. For troubleshooting, see `docs/TROUBLESHOOTING.md`.
 
-3. **Configure agents:**
+---
 
-   - Copy system prompts from `docs/prompts/` to your AI assistant
-   - Customize agent specs in `docs/agents/` for your needs
-   - Set up start prompts for agent initialization
-   - **Recommended:** Keep separate agent instances (one conversation per agent: THINKING_BUDDY, CODING_BUDDY, SYSTEM_BUDDY, CONTEXT_STEWARD)
-   - **Recommended:** Refresh agent context regularly (daily or per task) by re-invoking start prompts to maintain role fidelity
+## What This Kit Provides
 
-4. **Customize templates:**
+- **Four specialized agent roles** with clear boundaries (THINKING_BUDDY, CODING_BUDDY, SYSTEM_BUDDY, CONTEXT_STEWARD)
+- **Structured workflows** that prevent scope creep and maintain quality
+- **Automatic documentation updates** that stay in sync with your code
+- **Quality assurance system** with mandatory checkpoints
+- **Project context management** for storing domain knowledge and business rules
+- **Catch-up process** for syncing manual edits back into the system
+- **System health monitoring** with proactive review suggestions
 
-   - **Option A (Recommended):** Use THINKING_BUDDY with `docs/prompts/setup-thinking-buddy.txt` for automated customization
-   - **Option B:** Manually customize templates (see SETUP.md for details)
-   - Replace all `[YOUR PROJECT NAME]` placeholders
-   - Replace example content with your actual project details
+---
 
-5. **Establish workflows:**
+## Important Details
 
-   - Work directories are already created (no manual setup needed):
-     - `work/briefs/` - Execution briefs (THINKING_BUDDY → CODING_BUDDY)
-     - `work/findings/` - System findings (SYSTEM_BUDDY → THINKING_BUDDY)
-     - `work/briefs/archive/` - Archived briefs after implementation
-   - Verify `docs/system/SYSTEM_SUMMARY.md` template is customized (if using Option B)
-   - Verify templates are customized (if using Option A)
-   - Create your own project-context files (see `docs/project-context/README.md`)
+### ⚠️ Manual Editing and Context Drift
 
-6. **Begin using:**
-   - Use Thinking Buddy to create briefs
-   - Use Coding Buddy to implement from briefs (let them code, even if wrong - they'll fix it)
-   - Use System Buddy for periodic reviews (System Buddy will proactively suggest weekly/monthly reviews)
-   - Use Context Steward for operational guidance
-   - **Remember:** Manual edits are OK, but sync with agents afterward via catch-up briefs
+**You can manually edit code, but you need to sync with agents afterward.** Manual edits create a gap between what you know and what agents know (called "context drift").
 
-**Optional:** If you prefer not to commit working files (`work/`) and project-specific documentation (`docs/`) to your repository, you can add them to `.gitignore`. See `SETUP.md` Step 2 for guidance.
+**The simple rule:** If something looks wrong, ask CONTEXT_STEWARD to explain it first. After manual edits, request a "catch-up brief" to sync everything back up. For detailed rules and best practices, see `docs/RULES.md`.
+
+---
+
+### Understanding Templates vs. Framework
+
+**Important:** This bootstrap kit is a **meta-framework** for documenting YOUR project. The templates (`USER_GUIDE.md` and `SYSTEM_SUMMARY.md`) document YOUR product, not the framework itself.
+
+**Example:** Building a webshop? The templates describe how customers use your webshop and its architecture. The framework documentation (in `docs/agents/`, `docs/WORKFLOW.md`, etc.) describes how the agent system works. Always replace `[YOUR PROJECT NAME]` placeholders with your actual project name.
+
+### Project Context Folder
+
+Store all project-specific domain knowledge, business rules, and requirements in `docs/project-context/`. **This folder is READ-ONLY by default** - agents read from it but won't automatically update it unless you explicitly ask. You can store Markdown, PDF, or DOCX files organized by topic. See `docs/project-context/README.md` for details.
 
 ---
 
