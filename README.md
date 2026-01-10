@@ -128,11 +128,15 @@ The example file `docs/project-context/domain-requirements-EXAMPLE.md` is a plac
 
 2. **Review the framework:**
 
-   - Start with `docs/USER_GUIDE.md` to understand the system
-   - Read `docs/system/SYSTEM_SUMMARY.md` for technical overview
-   - Review `docs/WORKFLOW.md` for process patterns
-   - Review `docs/QUALITY_STANDARDS.md` for quality expectations
-   - Bookmark `docs/TROUBLESHOOTING.md` for when issues arise
+   - **Framework documentation** (how the bootstrap kit works):
+     - Review `docs/WORKFLOW.md` for process patterns
+     - Review `docs/QUALITY_STANDARDS.md` for quality expectations
+     - Bookmark `docs/TROUBLESHOOTING.md` for when issues arise
+     - Review `docs/agents/` for agent specifications
+   - **Project documentation templates** (currently contain example content, will be customized for YOUR project):
+     - `docs/USER_GUIDE.md` - Template for documenting how users interact with YOUR system (currently has example/placeholder content - will be customized)
+     - `docs/system/SYSTEM_SUMMARY.md` - Template for documenting YOUR system's architecture and technical details (currently has example/placeholder content - will be customized)
+     - **Note:** These templates currently contain example content. After customization, agents will maintain these documents with information about YOUR project. They do NOT describe how the bootstrap kit works.
    - **Populate `docs/project-context/`** with your project-specific domain knowledge (see SETUP.md)
 
 3. **Configure agents:**
@@ -140,6 +144,8 @@ The example file `docs/project-context/domain-requirements-EXAMPLE.md` is a plac
    - Copy system prompts from `docs/prompts/` to your AI assistant
    - Customize agent specs in `docs/agents/` for your needs
    - Set up start prompts for agent initialization
+   - **Recommended:** Keep separate agent instances (one conversation per agent: THINKING_BUDDY, CODING_BUDDY, SYSTEM_BUDDY, CONTEXT_STEWARD)
+   - **Recommended:** Refresh agent context regularly (daily or per task) by re-invoking start prompts to maintain role fidelity
 
 4. **Customize templates:**
 
