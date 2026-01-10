@@ -1,7 +1,7 @@
 # Catch-Up Process Guide
 
-**Version:** 1.0  
-**Last Updated:** 2026-01-09  
+**Version:** 1.1  
+**Last Updated:** 2026-01-10  
 **Purpose:** Quick reference for syncing manual edits with agents
 
 ---
@@ -12,11 +12,29 @@ After making manual code edits, use the catch-up process to sync your changes wi
 
 ---
 
+## ⚠️ BEFORE Manual Edits: Check Context First
+
+**If you see code that looks wrong or you don't understand, consult CONTEXT_STEWARD first.**
+
+**Common scenario:** You see a function, variable, method, or pattern that looks wrong, and you're tempted to fix it manually.
+
+**Why this matters:** What looks wrong to you might be intentional, part of a larger pattern, or have context you don't see. Editing without understanding can:
+- Break things that work correctly
+- Create unnecessary context drift
+- Miss the actual problem
+
+**Process:**
+1. **Ask CONTEXT_STEWARD:** "This [function/variable/method] looks wrong. Can you check context and explain why it's implemented this way?"
+2. **Understand first:** CONTEXT_STEWARD explains the context and whether it's actually wrong
+3. **Then decide:** After understanding, decide if manual edit is appropriate or if a brief is needed
+
+**See `docs/RULES.md` for detailed guidance on checking context before manual edits.**
+
 ## When to Use Catch-Up
 
 **Use catch-up briefs after:**
-- Variable/function renaming
-- Small refactors
+- Variable/function renaming (after checking context if it looked wrong)
+- Small refactors (after checking context if the original pattern looked wrong)
 - Typo fixes that affect behavior
 - Quick experiments you want to keep
 - Any manual edit that affects code agents work with

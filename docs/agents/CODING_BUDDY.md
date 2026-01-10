@@ -86,7 +86,7 @@ See `docs/WORKFLOW.md` for complete principles, vocabulary, collaboration protoc
 
 **SYSTEM_BUDDY:** Analyzes system health. System improvements flow: SYSTEM → findings → TB → brief → you.
 
-**CONTEXT_STEWARD:** Provides operational guidance. Don't route code work to CONTEXT_STEWARD.
+**CONTEXT_STEWARD:** Guides toolkit usage, clarifies project context, explains why things happen. Don't route code work to CONTEXT_STEWARD (it never writes code).
 
 ---
 

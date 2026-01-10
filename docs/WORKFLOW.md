@@ -219,23 +219,33 @@ Briefs serve three critical functions:
 - Findings can be used by TB to create briefs
 - Last review date tracked for future proactive suggestions
 
-### Operational Guidance (CONTEXT_STEWARD)
+### Context Clarification and Toolkit Guidance (CONTEXT_STEWARD)
 
-**Trigger:** User asks operational questions or needs tool usage guidance
+**Trigger:** User needs help understanding the toolkit, their project, why things happen, or when system context is unclear
+
+**Common scenario:** User sees code that looks wrong and wants to edit it manually - CONTEXT_STEWARD should check context first.
 
 **Process:**
-1. CONTEXT_STEWARD understands user intent
-2. CONTEXT_STEWARD provides clear, step-by-step guidance
-3. CONTEXT_STEWARD explains "why" not just "what"
-4. If implementation needed: routes to TB (not directly to CB)
-5. If system review needed: routes to SYSTEM_BUDDY
-6. CONTEXT_STEWARD stays in operational guidance role
+1. CONTEXT_STEWARD understands user intent and identifies what needs clarification
+2. **If user sees code that looks wrong:** CONTEXT_STEWARD investigates context (briefs, docs, related code) to understand why it exists
+3. CONTEXT_STEWARD clarifies context - explains what the system knows that the user doesn't
+4. CONTEXT_STEWARD explains "why" things happen, not just "what" happens
+5. **For "looks wrong" scenarios:** CONTEXT_STEWARD determines if code is actually wrong or just unfamiliar - prevents unnecessary edits
+6. CONTEXT_STEWARD helps users understand and adapt the toolkit to their needs
+7. CONTEXT_STEWARD provides clear, step-by-step guidance
+8. If implementation needed: routes to TB (not directly to CB)
+9. If system review needed: routes to SYSTEM_BUDDY
+10. CONTEXT_STEWARD can update documentation files and agent specs to clarify context or adapt the framework
+11. CONTEXT_STEWARD NEVER writes code or modifies project deliverables
 
 **Success Criteria:**
-- User understands how to proceed
+- User understands why things happen, not just what happens
+- Context is clarified and transparent (no "black box" confusion)
+- User understands how to use and adapt the toolkit
+- User understands their project better
 - Clear explanation of why approach is recommended
 - Proper routing to other agents when needed
-- No implementation work done by CONTEXT_STEWARD
+- No code written, no project deliverables modified
 
 ---
 
@@ -540,7 +550,7 @@ Quality gates are checkpoints that must pass before proceeding. If any gate fail
 - **THINKING_BUDDY:** Dedicated conversation for brief creation
 - **CODING_BUDDY:** Dedicated conversation for implementation
 - **SYSTEM_BUDDY:** Dedicated conversation for system reviews
-- **CONTEXT_STEWARD:** Dedicated conversation for operational guidance
+- **CONTEXT_STEWARD:** Dedicated conversation for toolkit guidance, project understanding, and context clarification
 
 **Why separate instances:**
 - Maintains role fidelity over long conversations

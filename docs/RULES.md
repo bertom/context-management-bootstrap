@@ -1,7 +1,7 @@
 # Rules for Using This Framework
 
-**Version:** 1.0  
-**Last Updated:** 2026-01-09  
+**Version:** 1.1  
+**Last Updated:** 2026-01-10  
 **Purpose:** Critical rules that must be followed for the framework to work
 
 ---
@@ -70,14 +70,39 @@ If you change files manually, agents will:
 - Agents can reason about full system
 - Quality gates enforced
 
+### ⚠️ BEFORE Manual Editing: Check Context First
+
+**If you see something that looks wrong or you don't understand, consult CONTEXT_STEWARD first.**
+
+**Common scenario:** You see a function, variable, method, or pattern that looks wrong or doesn't make sense to you, and you're itching to fix it manually.
+
+**The problem:** What looks wrong to you might be intentional, part of a larger pattern, or have context you don't see. Manual edits without understanding context can:
+- Break things that work correctly
+- Create inconsistencies with related code
+- Introduce context drift unnecessarily
+
+**The solution:**
+1. **Ask CONTEXT_STEWARD:** "This [function/variable/method] looks wrong to me. Can you check the context and explain why it's implemented this way?"
+2. **Understand first:** CONTEXT_STEWARD will explain why it exists, what context supports it, and whether it's actually wrong or just unfamiliar
+3. **Then decide:** After understanding the context, decide if manual edit is appropriate or if a brief is needed
+
+**Example scenarios:**
+- "This function name doesn't match the naming convention - is there a reason?"
+- "This variable seems unused - why is it here?"
+- "This method looks inefficient - is this intentional for a specific reason?"
+- "This code pattern seems wrong - can you check the context?"
+
+**Remember:** The system has context you may not have. CONTEXT_STEWARD bridges that gap before you make changes.
+
 ### When Manual Editing is Acceptable
 
 **You may manually edit code for:**
-- **Small, isolated fixes:** Variable renaming, typo fixes, simple refactors
+- **Small, isolated fixes:** Variable renaming, typo fixes, simple refactors (after checking context if it looks wrong)
 - **Quick experiments:** Trying something out before creating a brief
 - **Personal preference:** Code style adjustments that don't affect behavior
 
 **You are responsible for:**
+- **Checking context first** if something looks wrong (ask CONTEXT_STEWARD)
 - Ensuring agents catch up with your changes
 - Documenting changes that affect system behavior
 - Maintaining context consistency yourself
@@ -267,10 +292,18 @@ These files are safe to edit manually (agents don't reason from them):
 
 ### Check Before Editing
 
-**If in doubt, ask CONTEXT_STEWARD:**
+**Before making any manual edit, especially if something looks wrong, ask CONTEXT_STEWARD:**
 - "Is it safe to edit [file] manually?"
 - "Should I create a brief for this change instead?"
 - "Is this covered by a setup exception?"
+- **"This [function/variable/method] looks wrong - can you check the context and explain why it's implemented this way?"**
+- **"I don't understand why this code exists - can you clarify the context?"**
+
+**CONTEXT_STEWARD will:**
+- Check the context (briefs, documentation, related code)
+- Explain why the code exists and how it fits into the system
+- Help you understand if it's actually wrong or just unfamiliar
+- Guide you on whether a manual edit is appropriate or if a brief is needed
 
 ### When Manual Edits Are Necessary (Emergency Exception)
 

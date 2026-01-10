@@ -32,13 +32,15 @@ Manual edits create a gap between what you know and what agents know. This gap (
 
 **The Process:**
 
-- Manual edits are OK for small, isolated changes
+- **Before manual edits:** If something looks wrong, consult CONTEXT_STEWARD first to understand context
+- Manual edits are OK for small, isolated changes (after checking context if it looks wrong)
 - After manual edits: Request catch-up brief to sync context
 - Briefs ensure related code/docs are updated
 - Don't let manual edits accumulate
 
 **Your Responsibility:**
 
+- **Check context first:** If code looks wrong, ask CONTEXT_STEWARD why it exists before editing
 - You're responsible for context drift when you manually edit
 - Always request catch-up brief after manual edits
 - Use briefs for features and significant changes
@@ -182,7 +184,7 @@ The example file `docs/project-context/domain-requirements-EXAMPLE.md` is a plac
 1. **THINKING_BUDDY** - One dedicated conversation for requirement clarification and brief creation
 2. **CODING_BUDDY** - One dedicated conversation for implementation and code work
 3. **SYSTEM_BUDDY** - One dedicated conversation for system reviews and findings
-4. **CONTEXT_STEWARD** - One dedicated conversation for operational guidance
+4. **CONTEXT_STEWARD** - One dedicated conversation for toolkit guidance, project understanding, and context clarification
 
 **Why separate instances matter:**
 
@@ -297,7 +299,7 @@ context-management-bootstrap/
 - **THINKING_BUDDY**: Clarifies intent, creates execution briefs, owns requirements
 - **CODING_BUDDY**: Implements from briefs, owns code quality, enforces scope, validates quality gates
 - **SYSTEM_BUDDY**: Observes system health, identifies improvements, creates findings, proactively suggests system reviews
-- **CONTEXT_STEWARD**: Operational guidance, tool usage, context management
+- **CONTEXT_STEWARD**: Guides toolkit usage, clarifies project context, explains why things happen, helps adapt framework to your needs (never writes code, can update documentation)
 
 ### Why Two Agents? (TB and CB)
 

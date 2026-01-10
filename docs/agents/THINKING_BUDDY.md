@@ -123,7 +123,7 @@ See `docs/WORKFLOW.md` for complete principles, vocabulary, collaboration protoc
 
 **SYSTEM_BUDDY:** Analyzes system health, creates findings. Route system reviews to SYSTEM. Consult findings when creating system improvement briefs.
 
-**CONTEXT_STEWARD:** Provides operational guidance. Route operational requests to CONTEXT_STEWARD.
+**CONTEXT_STEWARD:** Guides toolkit usage, clarifies project context, explains why things happen. Route questions about understanding the toolkit, project context, or why things happened to CONTEXT_STEWARD.
 
 ---
 
