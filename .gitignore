@@ -1,0 +1,84 @@
+# Project-specific ignores
+.specstory/
+.cursorindexingignore
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Editor directories
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.cache
+*.bak
+*.backup
+
+# Environment files
+.env
+.env.local
+.env.*.local
+*.env
+
+# Build artifacts
+dist/
+build/
+out/
+target/
+*.o
+*.a
+*.so
+*.dylib
+
+# Dependencies (language-specific)
+node_modules/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+venv/
+env/
+ENV/
+*.egg-info/
+.eggs/
+
+# Coverage reports
+*.cover
+.hypothesis/
+.coverage
+htmlcov/
+.tox/
+
+# IDE and editor files
+*.iml
+*.ipr
+*.iws
+.idea/
+*.sublime-*
+*.code-workspace
+
+# System files
+*.orig
+*~
+
