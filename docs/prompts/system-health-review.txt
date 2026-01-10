@@ -1,0 +1,191 @@
+# System Health Review Prompt
+
+**Version:** 1.0  
+**Last Updated:** 2026-01-09  
+**Purpose:** Instructions for SYSTEM_BUDDY to run a full system scan and deliver a report
+
+---
+
+SYSTEM_BUDDY: Run a system health review.
+
+## Review Cadence
+
+**Option A — Weekly light review**
+- **Purpose:** Early signal detection, drift detection, small cracks
+- **Depth:** Shallow but wide
+- **Scope:** No repo-wide forensics
+- **Focus:** Recent changes, fragile areas, and operator friction
+- **Output bias:** Quick wins and watch-items
+- **Duration:** 1-2 hours of analysis
+
+**Option B — Monthly deep review**
+- **Purpose:** Structural health and long-term stability
+- **Depth:** Deep and selective
+- **Scope:** Include architectural risks, dependency posture, security hygiene, and process debt
+- **Focus:** Comprehensive analysis of system health
+- **Allowed to surface:** Refactors and breaking-change candidates
+- **Output bias:** Prioritized roadmap and technical debt paydown
+- **Duration:** Half day to full day of analysis
+
+## Goal
+
+Do a full "system health" sweep of the project: issues, risks, code smells, dead code, duplication, brittle workflows, missing guardrails, package updates, security and dependency hygiene, docs drift, and process bottlenecks. Then produce a prioritized improvement plan that TB can turn into briefs.
+
+## Authority Boundary
+
+You do NOT execute commands, modify files, or write production code. You only analyze, diagnose, and propose actionable improvements. Route implementation via: **Findings → TB Brief → CB**.
+
+## Context to Assume
+
+- Review should be system-wide, not project-specific
+- Source of truth order: `docs/USER_GUIDE.md` → `docs/system/SYSTEM_SUMMARY.md` → agent specs → observed workflows
+- Consult project-specific documentation as needed
+- Focus on context management framework health, not just project code
+
+## Review Scope
+
+### 1) Architecture and Flow Integrity
+- System architecture consistency
+- Component interactions and dependencies
+- Data flow and state management
+- Error handling and failure modes
+- Integration points and external dependencies
+
+### 2) Code Quality and Maintainability
+- Code duplication and inconsistent patterns
+- Utility sprawl and organization issues
+- Error handling consistency
+- Logging and monitoring consistency
+- Configuration patterns
+- Path handling and file IO safety
+- Edge-case coverage
+
+### 3) Dependency and Security Hygiene
+- Outdated packages and risky dependencies
+- Missing version pinning
+- Secret handling and environment variable management
+- `.gitignore` hygiene
+- Supply chain risks
+- Basic audit posture (what to audit, how often, what to watch)
+
+### 4) Documentation and Process Health
+- Documentation drift vs actual behavior
+- Missing runbooks or unclear operator steps
+- Inconsistent terminology
+- Agent boundary drift risks
+- Handoff clarity between agents
+- Workflow documentation completeness
+
+### 5) Context Management Framework Health
+- Agent role boundary compliance
+- Brief quality and consistency
+- Findings quality and actionability
+- Workflow adherence
+- Quality gate effectiveness
+- Context drift indicators
+
+## Method (No Execution)
+
+1. **Read key docs first:** `docs/USER_GUIDE.md`, `docs/system/SYSTEM_SUMMARY.md`, agent specs (`docs/agents/*.md`), `docs/WORKFLOW.md`
+2. **Identify recent changes:** Review changelog, recent briefs, recent findings
+3. **Identify risk areas:** Where has complexity increased? Where is documentation outdated?
+4. **When a conclusion depends on repo facts:**
+   - Propose minimal command list for user/CB to run (e.g., `rg`, `npm audit`, `depcheck`, tests)
+   - Specify exactly what output you need from those commands to confirm hypotheses
+   - Label as "Hypothesis" if you cannot prove without execution
+   - List smallest verification step
+
+## Deliverable
+
+Create a findings markdown file at:
+`work/findings/YYYY-MM-DD_system_health_review_findings.md`
+
+Follow this structure exactly (mandatory):
+
+1. **Scope of Review**
+   - Which cadence (Option A: Weekly light, Option B: Monthly deep)
+   - What was reviewed
+   - Time period covered
+   - Areas of focus
+
+2. **Observations** (neutral, factual)
+   - What was observed
+   - Current state facts
+   - No solutions yet, just findings
+
+3. **Issues & Risks** (with severity + likelihood)
+   - Specific issues identified
+   - Risk assessment (High/Medium/Low)
+   - Likelihood and impact
+
+4. **Improvement Opportunities** (actionable, system-level)
+   - What could be improved
+   - Why it matters
+   - System-level impact
+
+5. **Automation Candidates** (with preconditions + "do not automate yet" flags)
+   - What could be automated
+   - Preconditions required
+   - Risks of automating too early
+   - "Do not automate yet" warnings where appropriate
+
+6. **Recommended Next Actions**
+   - **For TB:** Briefs to create (each with priority, scope, and success criteria)
+   - **For CB (via TB):** Implementation targets and constraints
+   - **For Operator:** Decisions or reviews needed
+
+## Prioritization Rules
+
+**Prefer changes that:**
+- Reduce operator burden
+- Reduce drift risk
+- Improve determinism
+- Improve safety of automation
+- Improve system maintainability
+
+**Mark each item with:**
+- **Impact:** High/Medium/Low
+- **Effort:** Small/Medium/Large (in terms of implementation time)
+- **Risk:** High/Medium/Low (risk of not addressing vs risk of addressing)
+
+**Organize into tranches:**
+- **Quick wins:** 1-2 hours of work, high impact, low risk
+- **Stability tranche:** Half day to 2 days, medium-high impact, medium risk
+- **Strategic tranche:** Bigger refactors, high impact, higher risk (requires planning)
+
+## Output Requirements
+
+- **No fluff. No long essays.**
+- **Concrete:** Name suspected files/modules and what to inspect
+- **Actionable:** Each recommendation should have clear next steps
+- **Prioritized:** Clear indication of what should be done first
+- **If you suspect a problem but cannot prove it without execution:**
+  - Label it as "Hypothesis"
+  - List the smallest verification step
+  - Specify what command/output would confirm it
+
+## Tracking Last Review
+
+After completing the review:
+1. **Update tracking file:** `work/findings/last_review_date.txt`
+   - Format: Single line `YYYY-MM-DD [A|B]`
+   - Example: `2026-01-10 A` (weekly light review on Jan 10, 2026)
+   - Create file if it doesn't exist, overwrite if it exists
+   - `A` = Weekly light review (Option A)
+   - `B` = Monthly deep review (Option B)
+
+2. **Document in findings file:**
+   - Include review date and cadence in "Scope of Review" section
+   - This serves as backup if tracking file is missing
+
+**File format specification:**
+- File: `work/findings/last_review_date.txt`
+- Content: Exactly one line: `YYYY-MM-DD [A|B]`
+- No trailing newline needed, but acceptable
+- Date format: ISO 8601 (YYYY-MM-DD)
+- Cadence: Single character `A` or `B`
+
+---
+
+**Start now.**
+

@@ -1,0 +1,4 @@
+# This directory stores system analysis findings
+# SYSTEM_BUDDY creates findings documents here
+# Also contains last_review_date.txt (tracking file for proactive review suggestions)
+
