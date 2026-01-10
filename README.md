@@ -183,7 +183,7 @@ The example file `docs/project-context/domain-requirements-EXAMPLE.md` is a plac
 
 1. **THINKING_BUDDY** - One dedicated conversation for requirement clarification and brief creation
 2. **CODING_BUDDY** - One dedicated conversation for implementation and code work
-3. **SYSTEM_BUDDY** - One dedicated conversation for system reviews and findings
+3. **SYSTEM_BUDDY** - One dedicated conversation for system health reviews, context integrity reviews, and findings
 4. **CONTEXT_STEWARD** - One dedicated conversation for toolkit guidance, project understanding, and context clarification
 
 **Why separate instances matter:**
@@ -286,7 +286,8 @@ context-management-bootstrap/
     │   ├── system-system-buddy.txt
     │   ├── system-context-steward.txt
     │   ├── setup-thinking-buddy.txt
-    │   └── system-health-review.txt
+    │   ├── system-health-review.txt
+    │   └── context-integrity-review.txt
     └── briefs/                 # Templates
         ├── project-brief-template.md
         └── quality-checklist-template.md
@@ -298,7 +299,7 @@ context-management-bootstrap/
 
 - **THINKING_BUDDY**: Clarifies intent, creates execution briefs, **owns feature requirements**
 - **CODING_BUDDY**: Implements from briefs, **owns code and documentation maintenance**, enforces scope, validates quality gates
-- **SYSTEM_BUDDY**: **Owns system health** - observes, analyzes, identifies improvements, creates findings, proactively suggests system reviews
+- **SYSTEM_BUDDY**: **Owns system health** - observes, analyzes, identifies improvements, creates findings, proactively suggests system health reviews and context integrity reviews
 - **CONTEXT_STEWARD**: **Owns context health** - guides toolkit usage, clarifies project context, explains why things happen, helps adapt framework to your needs (never writes code, can update documentation)
 
 ### Why Two Agents? (TB and CB)

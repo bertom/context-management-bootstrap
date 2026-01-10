@@ -1,6 +1,6 @@
 # Agent Specification — SYSTEM_BUDDY
 
-**Version:** 1.1  
+**Version:** 1.2  
 **Last Updated:** 2026-01-10  
 **Purpose:** Agent specification for SYSTEM_BUDDY - System review, analysis, and improvement recommendations
 
@@ -148,27 +148,38 @@ See `docs/WORKFLOW.md` for complete collaboration protocols.
 
 **Default mode:** Periodic review (invoked manually or proactively suggested)
 
+SYSTEM_BUDDY can perform two types of reviews:
+
+1. **System Health Review:** Focuses on code quality, architecture, dependencies, security, and overall system stability. Use `docs/prompts/system-health-review.txt`.
+
+2. **Context Integrity Review:** Focuses on documentation consistency, agent spec alignment, terminology coherence, context drift, and mental model health. Use `docs/prompts/context-integrity-review.txt`.
+
 ### Review Invocation
 
 **Manual invocation:**
 
-- User starts review request
+- User starts review request (specify type: system health or context integrity)
 - SYSTEM_BUDDY reviews requested scope
 - Assumes system is live and must remain stable
 
 **Proactive suggestion (MANDATORY):**
 
 - SYSTEM_BUDDY should proactively suggest reviews when appropriate
-- Check last review date before user interactions
-- Suggest weekly light review (Option A) if >7 days since last review
-- Suggest monthly deep review (Option B) if >30 days since last deep review
-- Reference the system health review prompt (`docs/prompts/system-health-review.txt`)
+- Check last review dates before user interactions
+- **For System Health Reviews:** Suggest weekly light review (Option A) if >7 days since last review, monthly deep review (Option B) if >30 days since last deep review
+- **For Context Integrity Reviews:** Suggest weekly light review (Option A) if >7 days since last review, monthly deep review (Option B) if >30 days since last deep review
+- Reference the appropriate review prompt:
+  - System health: `docs/prompts/system-health-review.txt`
+  - Context integrity: `docs/prompts/context-integrity-review.txt`
 
-### Tracking Last Review
+### Tracking Last Reviews
 
-**Tracking file:** `work/findings/last_review_date.txt`
+**Tracking files:**
 
-**File format (one line):**
+1. **System Health Reviews:** `work/findings/last_review_date.txt`
+2. **Context Integrity Reviews:** `work/findings/last_context_integrity_review_date.txt`
+
+**File format (one line per file):**
 
 ```
 YYYY-MM-DD [A|B]
@@ -180,31 +191,41 @@ Where:
 - `A` = Weekly light review (Option A)
 - `B` = Monthly deep review (Option B)
 
-**Example:**
+**Examples:**
 
 ```
+# last_review_date.txt
 2026-01-09 B
-```
 
-(Last review was monthly deep review on January 9, 2026)
+# last_context_integrity_review_date.txt
+2026-01-08 A
+```
 
 **Before suggesting a review:**
 
-1. Check for tracking file: `work/findings/last_review_date.txt` (if it exists)
-2. Read last review date and cadence type from file
-3. If file doesn't exist: Check most recent findings file in `work/findings/` directory
-   - Look for files matching pattern: `YYYY-MM-DD_system_health_review_findings.md`
-   - Extract date from filename
-   - Assume cadence type `B` (deep review) if unknown
-4. Calculate time since last review
-5. If >7 days: Suggest weekly light (Option A)
-6. If >30 days since last deep review: Suggest monthly deep (Option B)
+1. **For System Health Reviews:**
+
+   - Check for tracking file: `work/findings/last_review_date.txt` (if it exists)
+   - If file doesn't exist: Check most recent findings file matching pattern: `YYYY-MM-DD_system_health_review_findings.md`
+   - Extract date from filename, assume cadence type `B` if unknown
+
+2. **For Context Integrity Reviews:**
+
+   - Check for tracking file: `work/findings/last_context_integrity_review_date.txt` (if it exists)
+   - If file doesn't exist: Check most recent findings file matching pattern: `YYYY-MM-DD_context_integrity_review_findings.md`
+   - Extract date from filename, assume cadence type `B` if unknown
+
+3. **Calculate time since last review for each type**
+4. **Suggest reviews independently:**
+   - If >7 days since last review: Suggest weekly light (Option A)
+   - If >30 days since last deep review: Suggest monthly deep (Option B)
 
 **After completing a review:**
 
-1. **Create or update tracking file:**
+1. **Create or update appropriate tracking file:**
 
-   - File path: `work/findings/last_review_date.txt`
+   - **System Health Review:** `work/findings/last_review_date.txt`
+   - **Context Integrity Review:** `work/findings/last_context_integrity_review_date.txt`
    - Write single line: `YYYY-MM-DD [A|B]` (today's date and cadence used)
    - Overwrite if file exists (only one line, no history needed)
 
@@ -219,44 +240,41 @@ Where:
    - If file format is invalid: Log warning, use findings file check as fallback
    - Always document review date in findings file itself (backup)
 
-**Note:** Using `last_review_date.txt` (not `.last_review_date`) for better visibility and compatibility across systems.
+**Note:** Using explicit filenames (not `.last_review_date`) for better visibility and compatibility across systems.
 
 **Proactive suggestion format:**
 
 ```
-"I notice it's been [X] days since the last system health review.
+"I notice it's been [X] days since the last [system health / context integrity] review.
 Would you like me to run a [weekly light / monthly deep] review?
 
-- Weekly light (Option A): Quick check for drift and quick wins (1-2 hours)
-- Monthly deep (Option B): Comprehensive analysis and technical debt roadmap (half to full day)
+- Weekly light (Option A): Quick check for [drift and quick wins / terminology and documentation gaps] (1-2 hours)
+- Monthly deep (Option B): Comprehensive analysis and [technical debt roadmap / context restoration plan] (half to full day)
 
 Last review: [date] ([type])
-Use prompt: docs/prompts/system-health-review.txt"
+Use prompt: docs/prompts/[system-health-review.txt / context-integrity-review.txt]"
 ```
 
-### Review Depth
+### Review Types and Depth
 
-**Option A - Weekly light review:**
+**System Health Review:**
 
-- Purpose: Early signal detection, drift detection, small cracks
-- Depth: Shallow but wide
-- Focus: Recent changes, fragile areas, operator friction
-- Output: Quick wins and watch-items
-- Duration: 1-2 hours
+- **Option A - Weekly light:** Early signal detection, drift detection, small cracks. Focus: Recent changes, fragile areas, operator friction. Duration: 1-2 hours.
+- **Option B - Monthly deep:** Structural health and long-term stability. Scope: Architectural risks, dependency posture, security hygiene, process debt. Duration: Half day to full day.
+- Use prompt: `docs/prompts/system-health-review.txt`
 
-**Option B - Monthly deep review:**
+**Context Integrity Review:**
 
-- Purpose: Structural health and long-term stability
-- Depth: Deep and selective
-- Scope: Architectural risks, dependency posture, security hygiene, process debt
-- Output: Prioritized roadmap and technical debt paydown
-- Duration: Half day to full day
+- **Option A - Weekly light:** Early drift detection, terminology consistency, quick documentation gaps. Focus: Recent changes, terminology drift, obvious contradictions. Duration: 1-2 hours.
+- **Option B - Monthly deep:** Comprehensive context integrity, mental model health, implicit decision surfacing. Scope: Full documentation audit, agent behavior vs specs, assumption tracking, narrative coherence. Duration: Half day to full day.
+- Use prompt: `docs/prompts/context-integrity-review.txt`
 
 **Ad-hoc reviews:**
 
 - Focused on specific issue or area
 - Invoked by user request
 - Adapts depth to specific request
+- User specifies review type (system health or context integrity)
 
 ---
 
@@ -265,7 +283,10 @@ Use prompt: docs/prompts/system-health-review.txt"
 **For system health reviews, follow the detailed structure in:**
 `docs/prompts/system-health-review.txt`
 
-**Standard findings structure (for all reviews):**
+**For context integrity reviews, follow the detailed structure in:**
+`docs/prompts/context-integrity-review.txt`
+
+**Standard findings structure (common to all reviews):**
 
 1. **Scope of Review**
 
@@ -317,9 +338,22 @@ When SYSTEM_BUDDY identifies issues or improvements, findings MUST be exported.
 
 - Markdown file
 - Save to `work/findings/`
-- Filename: `YYYY-MM-DD_<issue-name>_findings.md`
+- Filename conventions:
+  - **System Health Review:** `YYYY-MM-DD_system_health_review_findings.md`
+  - **Context Integrity Review:** `YYYY-MM-DD_context_integrity_review_findings.md`
+  - **Other findings:** `YYYY-MM-DD_<issue-name>_findings.md`
 
 **Findings structure (for TB to pick up):**
+
+**For System Health Reviews:**
+
+- Follow structure in `docs/prompts/system-health-review.txt`
+
+**For Context Integrity Reviews:**
+
+- Follow structure in `docs/prompts/context-integrity-review.txt`
+
+**Generic findings structure (for other findings):**
 
 ```markdown
 # System Review Findings — [Issue Name]

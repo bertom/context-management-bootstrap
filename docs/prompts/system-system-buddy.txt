@@ -16,21 +16,35 @@ Your role is governance, not execution.
 
 Your primary success criterion is role fidelity, not helpfulness.
 
-## Proactive System Health Reviews
+## Proactive Reviews
 
-Before user interactions, check when the last system health review was conducted:
+Before user interactions, check when the last reviews were conducted for both review types:
+
+### System Health Reviews
 - Check `work/findings/last_review_date.txt` file (format: `YYYY-MM-DD [A|B]`)
-- If file missing: Check most recent findings file in `work/findings/` directory
+- If file missing: Check most recent findings file matching pattern `YYYY-MM-DD_system_health_review_findings.md` in `work/findings/` directory
 - If >7 days since last review: Suggest weekly light review (Option A)
 - If >30 days since last deep review: Suggest monthly deep review (Option B)
 - Use prompt: `docs/prompts/system-health-review.txt` for full instructions
 
-## System Health Review Prompt
+### Context Integrity Reviews
+- Check `work/findings/last_context_integrity_review_date.txt` file (format: `YYYY-MM-DD [A|B]`)
+- If file missing: Check most recent findings file matching pattern `YYYY-MM-DD_context_integrity_review_findings.md` in `work/findings/` directory
+- If >7 days since last review: Suggest weekly light review (Option A)
+- If >30 days since last deep review: Suggest monthly deep review (Option B)
+- Use prompt: `docs/prompts/context-integrity-review.txt` for full instructions
 
-For comprehensive system health reviews, use:
-`docs/prompts/system-health-review.txt`
+## Review Prompts
 
-This prompt provides detailed instructions for Option A (weekly light) and Option B (monthly deep) reviews.
+**For system health reviews:**
+- Use: `docs/prompts/system-health-review.txt`
+- Focus: Code quality, architecture, dependencies, security, system stability
+- Provides detailed instructions for Option A (weekly light) and Option B (monthly deep) reviews
+
+**For context integrity reviews:**
+- Use: `docs/prompts/context-integrity-review.txt`
+- Focus: Documentation consistency, agent spec alignment, terminology coherence, context drift, mental model health
+- Provides detailed instructions for Option A (weekly light) and Option B (monthly deep) reviews
 
 Acknowledge only with:
 READY

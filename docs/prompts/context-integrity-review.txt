@@ -1,0 +1,256 @@
+# Context Integrity Review Prompt
+
+**Version:** 1.0  
+**Last Updated:** 2026-01-10  
+**Purpose:** Instructions for SYSTEM_BUDDY to review context alignment, documentation consistency, and prevent context drift
+
+---
+
+SYSTEM_BUDDY: Run a context integrity review.
+
+## Review Cadence
+
+**Option A — Weekly light review**
+- **Purpose:** Early drift detection, terminology consistency, quick documentation gaps
+- **Depth:** Shallow but wide
+- **Scope:** Documentation and agent spec alignment check
+- **Focus:** Recent changes, terminology drift, obvious contradictions
+- **Output bias:** Quick alignment fixes and watch-items
+- **Duration:** 1-2 hours of analysis
+
+**Option B — Monthly deep review**
+- **Purpose:** Comprehensive context integrity, mental model health, implicit decision surfacing
+- **Depth:** Deep and comprehensive
+- **Scope:** Full documentation audit, agent behavior vs specs, assumption tracking, narrative coherence
+- **Focus:** Structural context health, competing mental models, silent defaults
+- **Allowed to surface:** Major documentation restructuring, agent spec updates, decision log entries
+- **Output bias:** Prioritized context restoration plan
+- **Duration:** Half day to full day of analysis
+
+## Goal
+
+Ensure context management framework context is aligned, accurate, and internally consistent. Detect drift, contradictions, outdated assumptions, missing or implicit decisions, and mismatches between stated intent and actual documentation or workflows. Produce a clear alignment report and a plan to restore coherence.
+
+## Authority Boundary
+
+You do NOT execute commands, modify files, or rewrite documentation directly. You analyze, compare, and propose corrections. All changes are routed via: **Findings → TB Brief → CB**.
+
+## Context to Assume
+
+- Context is distributed across docs, agent specs, prompts, and lived workflow
+- Drift is expected over time and must be surfaced, not hidden
+- Documentation should reflect actual behavior, not aspirational behavior
+- Project-specific context (`docs/project-context/`) is READ-ONLY - reference for understanding but findings focus on framework integrity
+
+## Source of Truth Order (Strict)
+
+When evaluating consistency, consult these sources in priority order:
+
+1. **`docs/USER_GUIDE.md`** - Intended usage and workflows (authoritative for operations)
+2. **`docs/system/SYSTEM_SUMMARY.md`** - Actual behavior and changelog (authoritative for what actually happens)
+3. **Agent specifications** (`docs/agents/*.md`) - Agent behavior and boundaries
+4. **`docs/WORKFLOW.md`** - Workflow patterns and collaboration protocols
+5. **`docs/project-context/`** - READ-ONLY project-specific domain knowledge (for understanding project context, but findings focus on framework context integrity)
+   - **⚠️ NOTE:** Files with "-EXAMPLE" in filename (pattern: `*-EXAMPLE.md`) are placeholder files - always ignore them
+   - If folder only contains example files, treat as empty
+6. **Reusable prompts** (`docs/prompts/*.txt`) - Instructions and system prompts
+7. **Observed behavior** - How agents actually behave in practice (from recent briefs, findings, interactions)
+
+**Conflict Resolution:**
+- If `USER_GUIDE.md` conflicts with `SYSTEM_SUMMARY.md`: Surface the conflict explicitly, note which represents intended vs actual behavior, recommend alignment (via TB brief)
+- If agent specs conflict with observed behavior: Document the drift, recommend spec update (via TB brief)
+- If terminology differs across docs: Identify and propose standardization (via TB brief)
+
+## Review Scope
+
+### 1) Conceptual Alignment
+- Core purpose statements consistency across all documentation
+- Role boundaries between TB, CB, SYSTEM_BUDDY, CONTEXT_STEWARD
+- Ownership statements (who owns what: system health, context health, feature requirements, code maintenance)
+- "Framework improvement" vs "Project implementation" separation
+- Terminology consistency (same word, same meaning everywhere)
+- Mental model coherence (clear, stable understanding of how the framework works end-to-end)
+
+### 2) Documentation Integrity
+- Conflicting statements across files
+- Outdated descriptions vs current behavior
+- Missing documentation for things that clearly exist (workflows, processes, rules)
+- Documentation that describes things that no longer exist
+- Version numbers and "Last Updated" dates accuracy
+- Documentation structure consistency
+- Cross-references accuracy (links, file paths, references)
+
+### 3) Agent Behavior Coherence
+- Agent specs vs how agents are actually instructed to behave (in prompts and system instructions)
+- Overlapping responsibilities or gaps between agents
+- Drift in tone, authority, or decision rights
+- Implicit rules that are not written anywhere
+- Agent ownership statements consistency
+- Authority boundary clarity across all agent specs
+- Collaboration protocols consistency
+
+### 4) Assumption and Decision Tracking
+- Assumptions that are no longer valid
+- Decisions that were made implicitly but never recorded in `docs/DECISIONS.md`
+- Open questions that became "silent defaults"
+- Areas where user intent is inferred instead of explicit
+- Historical context that explains current state but isn't documented
+- Tradeoffs made but not documented
+
+### 5) Narrative and Mental Model Health
+- Is there a clear, stable mental model of how the context management framework works end-to-end?
+- Are there multiple competing models depending on which doc you read?
+- Where would a new user get confused?
+- Are workflow patterns consistently documented?
+- Is the "why" behind design decisions clear?
+- Can a developer understand the framework's purpose from the documentation?
+
+### 6) Context Drift Indicators
+- Documentation says one thing, observed behavior shows another
+- Agent specs say one thing, prompts say another
+- Recent changes not reflected in documentation
+- Briefs or findings reveal patterns not documented
+- User confusion points that indicate missing context
+
+## Method (No Execution)
+
+1. **Read key docs first:** `docs/USER_GUIDE.md`, `docs/system/SYSTEM_SUMMARY.md`, agent specs (`docs/agents/*.md`), `docs/WORKFLOW.md`, `docs/RULES.md`, `docs/prompts/`
+2. **Actively compare statements across documents:** Look for contradictions, inconsistencies, terminology drift
+3. **Review recent activity:** Check recent briefs, findings, changelog entries for revealed patterns
+4. **Treat contradictions as signals, not errors:** Document them, don't try to fix immediately
+5. **When unsure, label explicitly:** Mark as "Ambiguous" or "Implicit" or "Requires clarification"
+6. **Identify gaps:** What should be documented but isn't?
+7. **Check cross-references:** Are all links, file paths, and references accurate?
+
+## Deliverable
+
+Create a findings markdown file at:
+`work/findings/YYYY-MM-DD_context_integrity_review_findings.md`
+
+Follow this structure exactly (mandatory):
+
+1. **Scope of Review**
+   - Which cadence (Option A: Weekly light, Option B: Monthly deep, or Ad-hoc)
+   - What was reviewed
+   - What sources were consulted
+   - Time period covered
+   - Areas of focus
+
+2. **Stable Truths** (what is consistent and solid)
+   - Areas where documentation is aligned
+   - Clear, consistent patterns
+   - Well-documented workflows
+   - Strong mental models
+
+3. **Drift Signals** (where things diverged)
+   - Documentation vs observed behavior
+   - Agent spec vs actual instructions
+   - Terminology inconsistencies
+   - Changes not reflected in docs
+
+4. **Inconsistencies & Contradictions**
+   - Exact quotes or references that conflict
+   - Conflicting statements across files
+   - Competing mental models
+   - Authority boundary ambiguities
+
+5. **Missing or Implicit Context**
+   - Decisions not documented
+   - Assumptions not stated
+   - Silent defaults
+   - Missing documentation for existing processes
+   - Areas where intent is inferred
+
+6. **Risk Assessment**
+   - Confusion risks (where users/agents might misunderstand)
+   - Wrong decision risks (where ambiguity could lead to bad choices)
+   - Agent misuse risks (where boundaries are unclear)
+   - Context drift risks (where drift is accelerating)
+   - Impact assessment: High/Medium/Low
+
+7. **Alignment Actions** (prioritized recommendations)
+   - **Clarifications to add:** What needs to be made explicit
+   - **Decisions to surface:** Implicit decisions to document in DECISIONS.md
+   - **Docs to update or merge:** Specific files and sections
+   - **Terminology standardization:** Words/phrases to standardize
+   - **Agent spec updates:** Needed changes to agent specifications
+   - **Mental model consolidation:** Areas where competing models need reconciliation
+
+8. **Questions to Resolve** (explicitly list unanswered questions)
+   - Ambiguities that require user input
+   - Open questions that became defaults
+   - Areas needing clarification
+   - Decisions that need to be made explicit
+
+## Classification Rules
+
+Label each finding as one of:
+- **Drift:** Documentation doesn't match behavior
+- **Contradiction:** Conflicting statements across sources
+- **Missing Context:** Something should be documented but isn't
+- **Implicit Decision:** Decision made but not recorded
+- **Outdated Assumption:** Assumption no longer valid
+- **Terminology Inconsistency:** Same concept, different words
+- **Weak Signal:** Something feels "off" but cannot be proven
+
+## Prioritization Rules
+
+**Prioritize items that can cause:**
+- Wrong decisions by users or agents
+- Agent misuse or boundary violations
+- Context drift acceleration
+- User confusion or frustration
+- Framework misuse
+
+**Mark each item with:**
+- **Impact:** High/Medium/Low (consequence of not addressing)
+- **Urgency:** High/Medium/Low (how quickly it should be addressed)
+- **Confidence:** High/Medium/Low (certainty of the finding)
+
+**Organize into tranches:**
+- **Quick wins:** 1-2 hours of work, high impact, low risk (terminology fixes, typo corrections, simple clarifications)
+- **Stability tranche:** Half day to 2 days, medium-high impact, medium risk (documentation updates, spec alignments, decision documentation)
+- **Strategic tranche:** Bigger refactors, high impact, higher risk (major documentation restructuring, mental model consolidation, agent spec overhauls)
+
+## Output Requirements
+
+- **No fluff. No long essays.**
+- **Concrete:** Quote exact phrases that conflict, name specific files/sections
+- **Actionable:** Each recommendation should have clear next steps
+- **Prioritized:** Clear indication of what should be done first
+- **Precise and unemotional:** State facts, not opinions
+- **Reference sources:** Include file paths and line numbers where possible
+- **If something feels "off" but cannot be proven:** Mark as "Weak signal" with explanation
+
+## Optional: Historical Context
+
+If previous context integrity reviews exist, include:
+- **Delta since last review:** What's changed, what's new, what's resolved
+- **Newly stabilized areas:** What was fixed and is now consistent
+- **Regressions:** What was aligned before but has drifted again
+- **Trends:** Patterns in drift over time
+
+## Tracking Last Review
+
+After completing the review:
+1. **Update tracking file:** `work/findings/last_context_integrity_review_date.txt`
+   - Format: Single line `YYYY-MM-DD [A|B]`
+   - Example: `2026-01-10 A` (weekly light review on Jan 10, 2026)
+   - Create file if it doesn't exist, overwrite if it exists
+   - `A` = Weekly light review (Option A)
+   - `B` = Monthly deep review (Option B)
+
+2. **Document in findings file:**
+   - Include review date and cadence in "Scope of Review" section
+   - This serves as backup if tracking file is missing
+
+**File format specification:**
+- File: `work/findings/last_context_integrity_review_date.txt`
+- Content: Exactly one line: `YYYY-MM-DD [A|B]`
+- No trailing newline needed, but acceptable
+- Date format: ISO 8601 (YYYY-MM-DD)
+- Cadence: Single character `A` or `B`
+
+---
+
+**Start now.**
