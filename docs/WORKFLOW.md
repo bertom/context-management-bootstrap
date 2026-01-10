@@ -1,6 +1,6 @@
 # Workflow Patterns
 
-**Version:** 1.1  
+**Version:** 1.2  
 **Last Updated:** 2026-01-10  
 **Purpose:** Detailed workflow patterns and collaboration protocols
 
@@ -689,92 +689,57 @@ See `README.md` Best Practices section for detailed guidance.
 
 ## Documentation Update Rules
 
-### When USER_GUIDE is Updated
+**⚠️ CRITICAL: For comprehensive documentation standards, maintenance guidelines, formatting rules, and quality standards, see:**
+**`docs/DOCUMENTATION_STANDARDS.md`**
 
-**Triggers:**
+This section provides quick reference for workflow-specific documentation updates. The comprehensive standards document covers:
 
-- New workflows introduced
-- System architecture changes
-- Agent behavior changes
-- Documentation structure changes
+- Document header standards (version numbering, date format)
+- Agent documentation responsibilities
+- Update triggers and processes by document type
+- Quality standards and formatting rules
+- Cross-reference management
+- Review and validation processes
 
-**Updated by:** TB or CB (depending on change)
-**Process:**
+### Quick Reference: Who Updates What
 
-1. Find relevant section
-2. Update content to reflect new reality
-3. Maintain consistency (formatting, style)
-4. Update version and date at top
-5. Add to Table of Contents if new section
+**CODING_BUDDY (Primary Documentation Maintainer):**
 
-### When SYSTEM_SUMMARY is Updated
+- `docs/system/SYSTEM_SUMMARY.md` - MANDATORY after implementation (add changelog entry)
+- `docs/USER_GUIDE.md` - When user-facing behavior changes
+- Root `README.md` - When framework structure changes
+- Code-level documentation - When brief requires
 
-**Triggers:**
+**THINKING_BUDDY:**
 
-- Any system change (behavior, architecture, workflow)
-- Agent behavior changes
-- Documentation structure changes
+- Briefs (documentation artifacts)
+- `docs/USER_GUIDE.md` - When introducing new workflows (in coordination with CB)
+- Agent specs - When role boundaries change significantly
 
-**Updated by:** CB (after implementation)
-**Process:**
+**CONTEXT_STEWARD:**
 
-1. Add changelog entry with:
-   - Version number
-   - Date
-   - Status (Enhancement/Fix/Redesign/Breaking)
-   - What changed
-   - Why changed
-   - Impact
-   - Files modified
-2. Update relevant sections if needed
-3. Update version and date at top
-
-### When Agent Specs are Updated
-
-**Triggers:**
-
-- Agent behavior changes
-- Role boundaries change
-- New responsibilities added
-
-**Updated by:** TB (specs) or CB (if implementing changes)
-**Process:**
-
-1. Update relevant sections in agent spec
-2. Update version and date
-3. Check if system prompt needs update
-4. Update cross-references in other docs
-
-### When System Prompts are Updated
-
-**Triggers:**
-
-- Roles change significantly
-- Prompt effectiveness issues
-- New behaviors need enforcement
-
-**Updated by:** TB or operator
-**Process:**
-
-1. Update prompt text in `docs/prompts/`
-2. Test prompt with agent
-3. Update agent spec if behavior changes
-4. Document change in SYSTEM_SUMMARY changelog
-
-### Who Validates Freshness
+- Framework documentation - When clarifying context or adapting framework
+- Agent specs - When clarifying roles or adapting framework
 
 **SYSTEM_BUDDY:**
 
-- Periodic reviews of documentation
-- Checks version/date on all docs
-- Compares documentation to actual behavior
-- Documents drift in findings
+- Creates findings about documentation issues (does NOT update directly)
+- Validates documentation freshness during context integrity reviews
 
-**Operator:**
+### Quick Reference: Update Triggers
 
-- Reviews documentation periodically
-- Validates during major changes
-- Checks before releases
+**After Implementation (CB):**
+
+- System behavior changed → Update `SYSTEM_SUMMARY.md` changelog
+- User-facing behavior changed → Update `USER_GUIDE.md`
+- Framework structure changed → Update `README.md`
+
+**During Brief Creation (TB):**
+
+- New workflow → Plan `USER_GUIDE.md` updates in brief
+- Agent role changes → Plan agent spec updates in brief
+
+**MANDATORY: Always update version and date in document header when updating any documentation.**
 
 ---
 

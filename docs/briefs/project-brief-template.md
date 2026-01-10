@@ -1,5 +1,11 @@
 # Project Brief: [Project Name]
 
+**Version:** 1.0  
+**Last Updated:** 2026-01-10  
+**Purpose:** Template for creating project execution briefs
+
+---
+
 **Date:** YYYY-MM-DD  
 **Created By:** THINKING_BUDDY  
 **Status:** [Draft | Ready for Review | Approved | In Progress | Complete]

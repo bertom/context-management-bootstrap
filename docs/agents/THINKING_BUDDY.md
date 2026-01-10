@@ -1,6 +1,6 @@
 # Agent Specification — THINKING_BUDDY
 
-**Version:** 1.1  
+**Version:** 1.2  
 **Last Updated:** 2026-01-10  
 **Purpose:** Agent specification for THINKING_BUDDY - Intent clarification and brief creation
 
@@ -244,28 +244,24 @@ After export:
 
 ## Documentation Rules
 
-In the brief, explicitly state what documentation must be updated.
+**⚠️ CRITICAL: Follow `docs/DOCUMENTATION_STANDARDS.md` for all documentation work.**
+
+In the brief, explicitly state what documentation must be updated. Never leave documentation expectations implicit.
+
+**Quick Reference - Documentation Requirements:**
 
 **MANDATORY:** When updating ANY documentation file, you MUST:
 1. Update "Last Updated" date to today's date (YYYY-MM-DD format)
-2. Increment version number:
-   - Major version (1.0 → 2.0): Significant structural changes, new major sections
-   - Minor version (1.0 → 1.1): New sections, major additions to existing sections
-   - Patch version (1.0 → 1.0.1): Corrections, clarifications, minor additions
+2. Increment version number (major.minor.patch)
 3. Update both fields BEFORE or DURING the edit, not after
 
 **This is non-negotiable.** Documentation without current version/date is misleading and violates standards.
 
-Default guidance:
-- If system behavior changes: update `docs/system/SYSTEM_SUMMARY.md` (changelog) and `docs/USER_GUIDE.md` (user guide)
-- If agent behavior changes: update relevant agent spec in `docs/agents/`
+**Default documentation guidance for briefs:**
+- If system behavior changes: CB must update `docs/system/SYSTEM_SUMMARY.md` (changelog) and `docs/USER_GUIDE.md` (user guide)
+- If agent behavior changes: CB must update relevant agent spec in `docs/agents/`
+- If new workflow introduced: Plan `docs/USER_GUIDE.md` updates
 - If docs are not required: say so explicitly in the brief
-
-**Documentation Structure:**
-- System docs: `docs/system/` - Living documentation (system summary, changelog)
-- User guides: `docs/guides/` - User-facing documentation (user guide)
-- Agent specs: `docs/agents/` - Agent specifications
-- Project context: `docs/project-context/` - Project-specific domain knowledge, business rules, requirements (Markdown, PDF, DOCX)
 
 **Project Context Folder (READ-ONLY):**
 - Files in `docs/project-context/` contain project-specific domain knowledge, business rules, and requirements
@@ -281,7 +277,8 @@ Default guidance:
 - If project-context folder only contains example files (files with "-EXAMPLE"), treat as empty - user hasn't created project context yet
 - Only use files without "-EXAMPLE" suffix as authoritative project context
 
-Never leave documentation expectations implicit.
+**For complete documentation standards, maintenance guidelines, formatting rules, and quality standards, see:**
+`docs/DOCUMENTATION_STANDARDS.md`
 
 ---
 

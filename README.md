@@ -1,7 +1,7 @@
 # Context Management Bootstrap Kit
 
-**Version:** 1.0  
-**Last Updated:** 2026-01-09  
+**Version:** 1.1  
+**Last Updated:** 2026-01-10  
 **Purpose:** Reusable context management framework for AI-assisted development environments
 
 ---
@@ -275,6 +275,7 @@ context-management-bootstrap/
     ├── WORKFLOW.md             # Workflow patterns
     ├── DECISIONS.md            # Decision log template
     ├── QUALITY_STANDARDS.md    # Quality standards and validation criteria
+    ├── DOCUMENTATION_STANDARDS.md  # Documentation standards and maintenance guidelines
     ├── agents/                 # Agent specifications
     │   ├── THINKING_BUDDY.md
     │   ├── CODING_BUDDY.md

@@ -1,6 +1,8 @@
 # Quality Checklist Template
 
-**Purpose:** Use this checklist to verify implementation quality before closing any brief
+**Version:** 1.0  
+**Last Updated:** 2026-01-10  
+**Purpose:** Template checklist to verify implementation quality before closing any brief
 
 Copy this checklist into the brief's Acceptance Criteria section or use it as a validation checklist during implementation.
 

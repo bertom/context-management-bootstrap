@@ -1,7 +1,7 @@
 # Quality Standards
 
-**Version:** 1.0  
-**Last Updated:** 2026-01-09  
+**Version:** 1.1  
+**Last Updated:** 2026-01-10  
 **Purpose:** Quality standards and validation criteria for implementations
 
 ---
@@ -69,18 +69,23 @@ This document defines quality standards that CODING_BUDDY must satisfy before cl
 
 ## Documentation Standards
 
-### Code Documentation
+**⚠️ For comprehensive documentation standards and maintenance guidelines, see:**
+**`docs/DOCUMENTATION_STANDARDS.md`**
+
+This section defines quality validation criteria for documentation in implementations. The comprehensive standards document covers creation, maintenance, formatting, and processes.
+
+### Code Documentation Quality Checks
 
 - **Function Documentation:** Complex functions have clear documentation
 - **API Documentation:** Public APIs are documented (when applicable)
 - **Inline Comments:** Non-obvious code has explanatory comments
 
-### Documentation Updates
+### Documentation Update Quality Checks
 
-- **Version/Date:** Documentation version and date updated correctly
+- **Version/Date:** Documentation version and date updated correctly (follows `docs/DOCUMENTATION_STANDARDS.md` standards)
 - **Accuracy:** Documentation accurately reflects implementation
-- **Completeness:** All required documentation sections are updated
-- **Style:** Documentation follows project documentation style
+- **Completeness:** All required documentation sections are updated (per brief requirements and standards)
+- **Style:** Documentation follows project documentation style (consistent with `docs/DOCUMENTATION_STANDARDS.md`)
 
 ---
 
@@ -96,6 +101,7 @@ This document defines quality standards that CODING_BUDDY must satisfy before cl
 ### Verification Methods
 
 Acceptance criteria can be verified through:
+
 - Automated tests
 - Manual verification steps
 - Code review/analysis
@@ -127,11 +133,13 @@ Acceptance criteria can be verified through:
 ### Version Management
 
 - **Semantic Versioning:** Version bumped according to semver rules:
+
   - **Major:** Breaking changes
   - **Minor:** New backward-compatible features
   - **Patch:** Bug fixes, internal improvements
 
 - **Version File:** Version updated in file specified in brief
+
   - Brief MUST specify which file contains version (e.g., `package.json`, `Cargo.toml`, `version.txt`)
   - If brief doesn't specify: Escalate to TB (don't guess)
   - Common patterns: `package.json` (Node.js), `Cargo.toml` (Rust), `pyproject.toml` (Python), custom version files
@@ -139,7 +147,7 @@ Acceptance criteria can be verified through:
 
 - **Document Version Independence:**
   - USER_GUIDE.md version tracks user guide changes
-  - SYSTEM_SUMMARY.md version tracks system changes  
+  - SYSTEM_SUMMARY.md version tracks system changes
   - Agent spec versions track spec changes
   - Versions don't need to match across documents (each maintains own version history)
   - SYSTEM_SUMMARY.md changelog is the authoritative system version history
@@ -158,6 +166,7 @@ Acceptance criteria can be verified through:
 ### Pre-Implementation Gates
 
 1. **Brief Validation:**
+
    - Brief is complete and unambiguous
    - All acceptance criteria are testable
    - Technical feasibility confirmed
@@ -180,6 +189,7 @@ Acceptance criteria can be verified through:
 ### Pre-Completion Gates
 
 4. **Quality Validation (MANDATORY):**
+
    - All acceptance criteria verified
    - Code quality checks pass
    - All tests pass
@@ -208,6 +218,7 @@ Acceptance criteria can be verified through:
 ### Escalation
 
 If quality gate cannot be satisfied:
+
 - **Escalate to TB** with explanation
 - Identify which standard cannot be met and why
 - Propose alternative approach if possible
@@ -218,12 +229,14 @@ If quality gate cannot be satisfied:
 ## Project-Specific Customization
 
 Projects may customize these standards by:
+
 - Adding project-specific style guides
 - Defining project-specific testing requirements
 - Setting project-specific coverage thresholds
 - Specifying project-specific documentation requirements
 
 These customizations should be:
+
 - Documented in project README or standards doc
 - Referenced in briefs when applicable
 - Applied consistently across all implementations
@@ -237,4 +250,3 @@ These customizations should be:
 - Quality is everyone's responsibility, but CB owns implementation quality
 - Standards should be applied consistently, not selectively
 - When in doubt, escalate rather than compromise quality
-

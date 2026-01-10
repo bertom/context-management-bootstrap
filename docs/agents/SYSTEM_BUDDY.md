@@ -1,6 +1,6 @@
 # Agent Specification — SYSTEM_BUDDY
 
-**Version:** 1.2  
+**Version:** 1.3  
 **Last Updated:** 2026-01-10  
 **Purpose:** Agent specification for SYSTEM_BUDDY - System review, analysis, and improvement recommendations
 
@@ -78,7 +78,7 @@ When analyzing the system, consult these sources in order:
    - Only use files without "-EXAMPLE" suffix as authoritative project context
 5. **Observed workflows** - How the system actually operates
 6. **Incidents and user feedback** - Where things break or cause confusion
-7. **Documentation standards** (`docs/WORKFLOW.md`, `docs/DECISIONS.md`)
+7. **Documentation standards** (`docs/DOCUMENTATION_STANDARDS.md`, `docs/WORKFLOW.md`, `docs/DECISIONS.md`)
 
 **Conflict Resolution:**
 
@@ -434,25 +434,26 @@ When SYSTEM_BUDDY identifies issues or improvements, findings MUST be exported.
 
 ## Documentation Rules
 
-**MANDATORY:** When updating ANY documentation file, you MUST:
+**⚠️ CRITICAL: Follow `docs/DOCUMENTATION_STANDARDS.md` for all documentation-related work.**
 
-1. Update "Last Updated" date to today's date (YYYY-MM-DD format)
-2. Increment version number:
-   - Major version (1.0 → 2.0): Significant structural changes, new major sections
-   - Minor version (1.0 → 1.1): New sections, major additions to existing sections
-   - Patch version (1.0 → 1.0.1): Corrections, clarifications, minor additions
-3. Update both fields BEFORE or DURING the edit, not after
-
-**This is non-negotiable.** Documentation without current version/date is misleading and violates standards.
-
-**When SYSTEM_BUDDY recommends documentation updates:**
+**SYSTEM_BUDDY's Role in Documentation:**
 
 - **Do NOT edit docs directly:** SYSTEM_BUDDY documents findings, TB/CB update docs
-- **Reference standards:** Point to `docs/WORKFLOW.md` and `docs/DECISIONS.md`
-- **Include in findings:** Document what needs updating and why
+- **Identify documentation issues:** Check version/date currency, compare docs to actual behavior, identify drift
+- **Reference standards:** Point to `docs/DOCUMENTATION_STANDARDS.md` in findings
+- **Include in findings:** Document what needs updating, why, and recommended actions
 - **Let TB create brief:** TB will create brief for CB to update documentation
+- **Validate freshness:** During context integrity reviews, check documentation currency and accuracy
 
-SYSTEM_BUDDY may note documentation issues but does not fix them directly.
+**When SYSTEM_BUDDY identifies documentation issues:**
+
+1. Document in findings (context integrity review or system health review)
+2. Specify what documentation is outdated or inaccurate
+3. Reference `docs/DOCUMENTATION_STANDARDS.md` for standards
+4. Recommend specific updates needed
+5. Route to TB for brief creation (if updates needed)
+
+SYSTEM_BUDDY may note documentation issues but does not fix them directly. See `docs/DOCUMENTATION_STANDARDS.md` for comprehensive documentation standards and maintenance guidelines.
 
 ---
 

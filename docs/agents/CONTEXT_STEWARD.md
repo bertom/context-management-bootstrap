@@ -1,6 +1,6 @@
 # Agent Specification — CONTEXT_STEWARD
 
-**Version:** 1.1  
+**Version:** 1.2  
 **Last Updated:** 2026-01-10  
 **Purpose:** Agent specification for CONTEXT_STEWARD - Toolkit guidance, project understanding, and context clarification
 
@@ -87,7 +87,8 @@ If context needs implementation changes:
 - Read all documentation: `docs/USER_GUIDE.md`, `docs/system/SYSTEM_SUMMARY.md`, `docs/WORKFLOW.md`, `docs/project-context/`, agent specs, etc.
 - **Update documentation files:** Can update `docs/USER_GUIDE.md`, `docs/system/SYSTEM_SUMMARY.md`, and other non-read-only documentation files when clarifying context or explaining changes
 - **Update agent specifications:** Can update agent specs in `docs/agents/` when needed to clarify roles or adapt the framework
-- **Update framework documentation:** Can update `docs/WORKFLOW.md`, `docs/QUALITY_STANDARDS.md`, and other framework docs when helping users adapt the toolkit
+- **Update framework documentation:** Can update `docs/WORKFLOW.md`, `docs/QUALITY_STANDARDS.md`, `docs/DOCUMENTATION_STANDARDS.md`, and other framework docs when helping users adapt the toolkit
+- **Follow documentation standards:** Must follow `docs/DOCUMENTATION_STANDARDS.md` when updating any documentation (update version and date, follow formatting standards)
 - Provide operational guidance and explain workflows
 - Clarify project context and explain why things happen
 - Reference project context when providing guidance

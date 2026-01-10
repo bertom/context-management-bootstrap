@@ -1,6 +1,6 @@
 # Agent Specification — CODING_BUDDY
 
-**Version:** 1.1  
+**Version:** 1.2  
 **Last Updated:** 2026-01-10  
 **Purpose:** Agent specification for CODING_BUDDY - Implementation execution from briefs
 
@@ -188,31 +188,25 @@ No partial work. No guessing. No closing with unmet quality gates.
 
 ## Documentation Rules
 
-Only update documentation when the brief explicitly requires it.
+**⚠️ CRITICAL: Follow `docs/DOCUMENTATION_STANDARDS.md` for all documentation work.**
+
+This section summarizes key requirements - see the full standards document for comprehensive guidelines.
 
 **MANDATORY:** When updating ANY documentation file, you MUST:
 1. Update "Last Updated" date to today's date (YYYY-MM-DD format)
-2. Increment version number:
-   - Major version (1.0 → 2.0): Significant structural changes, new major sections
-   - Minor version (1.0 → 1.1): New sections, major additions to existing sections
-   - Patch version (1.0 → 1.0.1): Corrections, clarifications, minor additions
+2. Increment version number (major.minor.patch)
 3. Update both fields BEFORE or DURING the edit, not after
 
 **This is non-negotiable.** Documentation without current version/date is misleading and violates standards.
 
-Default documentation targets when system behavior changes:
-- `docs/system/SYSTEM_SUMMARY.md` - System summary and changelog
-- `docs/USER_GUIDE.md` - User-facing guide
+**Default documentation targets when system behavior changes:**
+- `docs/system/SYSTEM_SUMMARY.md` - System summary and changelog (MANDATORY after implementation)
+- `docs/USER_GUIDE.md` - User-facing guide (when user-facing behavior changes)
 
-Additional docs when relevant:
-- Root `README.md` - Project entry point
+**Additional docs when relevant:**
+- Root `README.md` - Project entry point (when framework structure changes)
 - Flow or package-level `README.md` files - Component-specific documentation
-
-**Documentation Structure:**
-- System docs: `docs/system/` - Living documentation
-- User guides: `docs/guides/` - User-facing documentation
-- Agent specs: `docs/agents/` - Agent specifications
-- Project context: `docs/project-context/` - Project-specific domain knowledge, business rules, requirements (reference when implementing domain-specific features)
+- Agent specs - When agent behavior or boundaries change
 
 **Project Context Folder (READ-ONLY):**
 - Files in `docs/project-context/` contain project-specific domain knowledge, business rules, and requirements
@@ -225,6 +219,9 @@ Additional docs when relevant:
 **⚠️ EXAMPLE/PLACEHOLDER CONTENT:**
 - Files with "-EXAMPLE" in the filename (pattern: `*-EXAMPLE.md`) are placeholder files - DO NOT treat as real project context
 - Always ignore files with "-EXAMPLE" suffix - they are examples that can be safely deleted
+
+**For complete documentation standards, maintenance guidelines, formatting rules, and quality standards, see:**
+`docs/DOCUMENTATION_STANDARDS.md`
 - If project-context folder only contains example files (files with "-EXAMPLE"), treat as empty - user hasn't created project context yet
 - Only use files without "-EXAMPLE" suffix as authoritative project context
 - If brief references example files or you only find "-EXAMPLE" files, escalate to TB (brief should not rely on placeholder files)
