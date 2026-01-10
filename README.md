@@ -296,10 +296,10 @@ context-management-bootstrap/
 
 ### Agent Roles
 
-- **THINKING_BUDDY**: Clarifies intent, creates execution briefs, owns requirements
-- **CODING_BUDDY**: Implements from briefs, owns code quality, enforces scope, validates quality gates
-- **SYSTEM_BUDDY**: Observes system health, identifies improvements, creates findings, proactively suggests system reviews
-- **CONTEXT_STEWARD**: Guides toolkit usage, clarifies project context, explains why things happen, helps adapt framework to your needs (never writes code, can update documentation)
+- **THINKING_BUDDY**: Clarifies intent, creates execution briefs, **owns feature requirements**
+- **CODING_BUDDY**: Implements from briefs, **owns code and documentation maintenance**, enforces scope, validates quality gates
+- **SYSTEM_BUDDY**: **Owns system health** - observes, analyzes, identifies improvements, creates findings, proactively suggests system reviews
+- **CONTEXT_STEWARD**: **Owns context health** - guides toolkit usage, clarifies project context, explains why things happen, helps adapt framework to your needs (never writes code, can update documentation)
 
 ### Why Two Agents? (TB and CB)
 
@@ -318,14 +318,14 @@ context-management-bootstrap/
 
 **THINKING_BUDDY (TB):**
 
-- **Owns:** Intent, requirements, scope, decisions
+- **Owns:** Feature requirements (intent, requirements, scope, decisions)
 - **Focus:** "What" and "Why" - understanding the problem completely
 - **Output:** Brief (executable specification)
 - **Stops:** After brief is created and approved
 
 **CODING_BUDDY (CB):**
 
-- **Owns:** Implementation quality, code execution
+- **Owns:** Code and documentation maintenance (implementation quality, code execution, keeping docs current)
 - **Focus:** "How" - executing from the brief
 - **Input:** Brief (the contract)
 - **Stops:** After implementation is complete
@@ -335,7 +335,7 @@ context-management-bootstrap/
 1. **Cognitive Separation:** Different mental models - TB thinks about problems, CB thinks about solutions
 2. **Quality Gate:** Brief serves as mandatory checkpoint - user reviews before execution
 3. **Scope Control:** CB can't expand scope (it's not in the brief) - prevents feature creep
-4. **Accountability:** Clear ownership - TB owns requirements, CB owns implementation
+4. **Accountability:** Clear ownership - TB owns feature requirements, CB owns code and documentation maintenance
 5. **User Control:** Brief gives you final say before any code is written
 6. **Documentation:** Brief is permanent record - what was requested, what was built
 
