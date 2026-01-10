@@ -1,8 +1,10 @@
 # Context Management Bootstrap Kit
 
-**Version:** 1.3  
+**Version:** 1.4  
 **Last Updated:** 2026-01-10  
 **Purpose:** Reusable context management framework for AI-assisted development environments
+
+> **🚀 Multi-agent system with shared knowledge** - Four specialized AI agents coordinate through structured workflows, sharing a persistent knowledge base to maintain context consistency and reduce drift.
 
 ---
 
@@ -11,6 +13,8 @@
 The **Context Management Bootstrap Kit** is a framework that helps you work effectively with AI coding assistants by keeping everyone (you and your AI agents) on the same page. Instead of struggling with context drift, outdated documentation, and agents that forget what they're supposed to do, this kit gives you a structured system where everything stays in sync.
 
 **In simple terms:** It's a set of rules, workflows, and templates that turn your AI assistant into a reliable development partner. You get four specialized "agent roles" (like having separate team members for planning, coding, system reviews, and guidance), clear workflows for how they work together, and automatic documentation that stays up-to-date with your codebase.
+
+**What makes it work:** Agents share a common knowledge base (documentation, project context) that they all read from and write to. This creates a "collective memory" - when one agent learns something, others can access it. They coordinate through structured handoffs (briefs, findings) rather than direct communication, creating a distributed system where each agent has a specialized role but the whole system stays synchronized.
 
 ## How Do You Use It?
 
@@ -46,13 +50,14 @@ That's the basics! For detailed setup instructions, see `SETUP.md`. For troubles
 
 ## What This Kit Provides
 
-- **Four specialized agent roles** with clear boundaries (THINKING_BUDDY, CODING_BUDDY, SYSTEM_BUDDY, CONTEXT_STEWARD)
-- **Structured workflows** that prevent scope creep and maintain quality
-- **Automatic documentation updates** that stay in sync with your code
-- **Quality assurance system** with mandatory checkpoints
-- **Project context management** for storing domain knowledge and business rules
-- **Catch-up process** for syncing manual edits back into the system
-- **System health monitoring** with proactive review suggestions
+- **Four specialized agent roles** (THINKING_BUDDY, CODING_BUDDY, SYSTEM_BUDDY, CONTEXT_STEWARD) with clear boundaries and responsibilities
+- **Shared knowledge architecture** - Documentation and project context that all agents read from and maintain
+- **Structured workflows** - Clear handoff patterns (briefs, findings) that prevent scope creep and maintain quality
+- **Self-updating documentation** - Living documentation system that automatically stays in sync with your codebase
+- **Quality gates and validation** - Mandatory checkpoints ensuring consistent, maintainable implementations
+- **Project context management** - Dedicated READ-ONLY folder for domain knowledge, business rules, and requirements
+- **Context synchronization** - Catch-up process for syncing manual edits back into the system
+- **Proactive monitoring** - Automated health checks and context integrity reviews
 
 ---
 
