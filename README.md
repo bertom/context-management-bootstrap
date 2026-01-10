@@ -23,7 +23,7 @@ The **Context Management Bootstrap Kit** is a framework that helps you work effe
 1. **Set up the framework** (one-time):
 
    - Copy the kit and configure your AI agents with the provided prompts
-   - **Customize templates:** Use THINKING_BUDDY with `docs/prompts/setup-thinking-buddy.txt` to populate `USER_GUIDE.md` and `SYSTEM_SUMMARY.md` with your project information. TB will interview you and create a brief for CODING_BUDDY to execute the customization.
+   - **Customize templates:** Use THINKING_BUDDY with `docs/prompts/setup-thinking-buddy.txt` to populate `USER_GUIDE.md` and `SYSTEM_SUMMARY.md` with your project information. TB will interview you and create a brief for CODING_BUDDY to execute the customization. This basically shows you how the framework works in practice.
    - Populate `docs/project-context/` with your domain knowledge and business rules
 
 2. **Request features or changes:** Tell THINKING_BUDDY what you want. They'll ask clarifying questions and create a detailed "brief" (executable specification) for you to review.
