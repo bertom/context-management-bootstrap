@@ -84,12 +84,11 @@ No manual directory creation is needed - the bootstrap kit includes all required
 
 2. **Review the example file and create your own:**
 
-   - `docs/project-context/domain-requirements-EXAMPLE.md` - Example template following the webshop placeholder pattern
-   - **⚠️ CRITICAL:** This file has "-EXAMPLE" suffix and contains EXAMPLE/PLACEHOLDER content about "Acme Webshop" - this is NOT real project context
-   - **The "-EXAMPLE" suffix makes it clear this is a template** - agents will ignore files with this suffix
-   - **Create your own file** (e.g., `domain-requirements.md`) with your actual project's domain knowledge, business rules, and requirements
-   - You can delete the example file once you've created your own, or keep it as a reference
-   - Agents should NOT treat "Acme Webshop" or any placeholder content as real project context
+   - `docs/project-context/domain-requirements-EXAMPLE.md` - This is a placeholder example file
+   - **This folder is for storing all your project-specific context** - domain knowledge, business rules, requirements, API specifications, etc.
+   - **The example file can be safely deleted** - it's just a placeholder showing where to put project context
+   - **Create your own files** as needed (e.g., `domain-requirements.md`, `api-specifications.md`, `business-rules.md`)
+   - **Files with "-EXAMPLE" suffix are automatically ignored by agents** - they will only use your actual project-context files
 
 3. **Add your project-specific context files:**
 
@@ -404,7 +403,7 @@ The framework is tool-agnostic, but you'll need to:
 - [ ] All files copied to project
 - [ ] Work directories verified (already created: `work/briefs/`, `work/findings/`)
 - [ ] **Project context folder populated** (`docs/project-context/` with your domain knowledge)
-- [ ] **Created your own project-context files** - `docs/project-context/domain-requirements-EXAMPLE.md` is a template only - create your own `domain-requirements.md` (or similar) with actual project data
+- [ ] **Created your own project-context files** - `docs/project-context/domain-requirements-EXAMPLE.md` can be safely deleted - create your own project-context files in this folder as needed
 - [ ] Templates customized (Option A: via THINKING_BUDDY, Option B: manually)
 - [ ] `[YOUR PROJECT NAME]` placeholders replaced in USER_GUIDE.md
 - [ ] `[YOUR PROJECT NAME]` placeholders replaced in SYSTEM_SUMMARY.md

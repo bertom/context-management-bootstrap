@@ -31,12 +31,14 @@ This bootstrap kit provides a complete context management framework extracted fr
 Manual edits create a gap between what you know and what agents know. This gap (context drift) breaks the context management system if not addressed.
 
 **The Process:**
+
 - Manual edits are OK for small, isolated changes
 - After manual edits: Request catch-up brief to sync context
 - Briefs ensure related code/docs are updated
 - Don't let manual edits accumulate
 
 **Your Responsibility:**
+
 - You're responsible for context drift when you manually edit
 - Always request catch-up brief after manual edits
 - Use briefs for features and significant changes
@@ -48,17 +50,19 @@ Manual edits create a gap between what you know and what agents know. This gap (
 
 ## Critical Distinction
 
-**IMPORTANT:** This bootstrap kit is a **meta-framework** that provides structure for documenting YOUR ACTUAL PROJECT. 
+**IMPORTANT:** This bootstrap kit is a **meta-framework** that provides structure for documenting YOUR ACTUAL PROJECT.
 
 The templates (`USER_GUIDE.md` and `SYSTEM_SUMMARY.md`) are designed to document YOUR PRODUCT/SYSTEM, not the bootstrap kit itself.
 
 **Example:** When building a webshop:
+
 - `USER_GUIDE.md` describes how customers use the webshop (browsing, shopping cart, checkout)
 - `SYSTEM_SUMMARY.md` describes the webshop's architecture (frontend, backend, database, payment integration)
 
 These documents do NOT describe the context management framework or agent roles—they document your actual project that uses the framework.
 
 The framework itself is documented in:
+
 - `docs/agents/` - Agent specifications (framework components)
 - `docs/WORKFLOW.md` - Workflow patterns (framework processes)
 - `docs/prompts/` - System prompts (framework configuration)
@@ -98,6 +102,7 @@ Files in `docs/project-context/` are treated as authoritative reference sources,
 ### How Agents Use This Folder
 
 All agents (THINKING_BUDDY, CODING_BUDDY, SYSTEM_BUDDY, CONTEXT_STEWARD) treat files in `docs/project-context/` as **read-only reference sources**. When agents need to understand:
+
 - Business rules or domain constraints → They reference files in this folder (read-only)
 - Integration requirements → They check project-context files (read-only)
 - Domain terminology or concepts → They consult this folder (read-only)
@@ -106,22 +111,23 @@ All agents (THINKING_BUDDY, CODING_BUDDY, SYSTEM_BUDDY, CONTEXT_STEWARD) treat f
 **Example:** When THINKING_BUDDY creates a brief for a new feature, it should check `docs/project-context/` for business rules that might constrain the implementation. When CODING_BUDDY implements, it should verify compliance with domain requirements stored here. Neither agent will modify these files unless explicitly requested.
 
 **If business rules or domain requirements change:**
+
 - You (the user) manually update files in `docs/project-context/` OR
 - Explicitly request an agent (via brief or task) to update specific files in this folder
 - Agents will not automatically detect and update stale project context
 
-See `docs/project-context/domain-requirements-EXAMPLE.md` for an example following the webshop placeholder pattern.
-
-**⚠️ IMPORTANT:** The example file (`domain-requirements-EXAMPLE.md`) contains placeholder content about "Acme Webshop" - this is EXAMPLE DATA only. The "-EXAMPLE" suffix makes it clear this is a template. You MUST create your own project-context files (e.g., `domain-requirements.md`) with your actual project information before using agents. Agents should NOT treat files with "-EXAMPLE" suffix as real project context.
+The example file `docs/project-context/domain-requirements-EXAMPLE.md` is a placeholder that can be safely deleted. This folder is for storing all your project-specific context - domain knowledge, business rules, requirements, API specifications, etc. Create your own project-context files as needed. Files with "-EXAMPLE" suffix are automatically ignored by agents.
 
 ## Quick Start
 
 1. **Read the Rules (IMPORTANT):**
+
    - **Read `docs/RULES.md` first** - Understand context drift and the catch-up process
    - Understand: You can manually edit, but must sync with agents afterward
    - Learn the catch-up workflow for maintaining context consistency
 
 2. **Review the framework:**
+
    - Start with `docs/USER_GUIDE.md` to understand the system
    - Read `docs/system/SYSTEM_SUMMARY.md` for technical overview
    - Review `docs/WORKFLOW.md` for process patterns
@@ -130,23 +136,27 @@ See `docs/project-context/domain-requirements-EXAMPLE.md` for an example followi
    - **Populate `docs/project-context/`** with your project-specific domain knowledge (see SETUP.md)
 
 3. **Configure agents:**
+
    - Copy system prompts from `docs/prompts/` to your AI assistant
    - Customize agent specs in `docs/agents/` for your needs
    - Set up start prompts for agent initialization
 
 4. **Customize templates:**
+
    - **Option A (Recommended):** Use THINKING_BUDDY with `docs/prompts/setup-thinking-buddy.txt` for automated customization
    - **Option B:** Manually customize templates (see SETUP.md for details)
    - Replace all `[YOUR PROJECT NAME]` placeholders
    - Replace example content with your actual project details
 
 5. **Establish workflows:**
-   - Set up work directories (create at project root):
+
+   - Work directories are already created (no manual setup needed):
      - `work/briefs/` - Execution briefs (THINKING_BUDDY → CODING_BUDDY)
      - `work/findings/` - System findings (SYSTEM_BUDDY → THINKING_BUDDY)
      - `work/briefs/archive/` - Archived briefs after implementation
    - Verify `docs/system/SYSTEM_SUMMARY.md` template is customized (if using Option B)
    - Verify templates are customized (if using Option A)
+   - Create your own project-context files (see `docs/project-context/README.md`)
 
 6. **Begin using:**
    - Use Thinking Buddy to create briefs
@@ -169,12 +179,14 @@ See `docs/project-context/domain-requirements-EXAMPLE.md` for an example followi
 4. **CONTEXT_STEWARD** - One dedicated conversation for operational guidance
 
 **Why separate instances matter:**
+
 - **Role fidelity:** Each agent maintains its role boundaries more effectively
 - **Context clarity:** Each conversation stays focused on that agent's domain
 - **Reduced confusion:** Agents don't mix responsibilities or drift between roles
 - **Better workflow:** Clean handoffs between agents (brief → implementation → review)
 
 **If you must use a single conversation:**
+
 - Clearly identify which agent role you're invoking
 - Use the agent's start prompt to re-establish role boundaries
 - Be explicit about role transitions ("Now switching to CODING_BUDDY role...")
@@ -184,18 +196,22 @@ See `docs/project-context/domain-requirements-EXAMPLE.md` for an example followi
 **If you notice agent drift (agent acting outside role boundaries), refresh context:**
 
 **Signs of agent drift:**
+
 - Agent suggests actions outside its role (e.g., CODING_BUDDY creating briefs, THINKING_BUDDY writing code)
 - Agent forgets role boundaries and tries to be "helpful" by doing everything
 - Agent mixes responsibilities between different roles
 - Agent bypasses workflow (e.g., CB trying to implement without brief)
 
 **How to refresh context:**
+
 1. **Re-invoke the agent's start prompt:**
+
    - Copy the relevant prompt from `docs/prompts/system-[agent-name].txt`
    - Paste it as a new message to reset role boundaries
    - Agent will acknowledge with "READY" and reset to proper role
 
 2. **Reference the agent specification:**
+
    - Point agent to `docs/agents/[AGENT_NAME].md`
    - Remind agent of its specific role and boundaries
    - Clarify what it should and should NOT do
@@ -206,6 +222,7 @@ See `docs/project-context/domain-requirements-EXAMPLE.md` for an example followi
    - Copy relevant context (briefs, findings) as needed
 
 **When to refresh:**
+
 - After long conversations (>50-100 messages)
 - When you notice role boundary violations
 - When switching between different types of work
@@ -213,11 +230,13 @@ See `docs/project-context/domain-requirements-EXAMPLE.md` for an example followi
 - When agent seems confused about its role
 
 **Proactive refresh schedule (recommended):**
+
 - **Daily:** Re-invoke start prompts at the beginning of work session
 - **Per task:** Refresh before starting a new brief/implementation/review cycle
 - **On drift:** Immediate refresh when you notice boundary violations
 
 **Benefits of regular refresh:**
+
 - Maintains role fidelity over long conversations
 - Prevents gradual drift into "helpful" general assistant mode
 - Keeps workflow clean and predictable
@@ -244,11 +263,10 @@ context-management-bootstrap/
     │   └── SYSTEM_SUMMARY.md   # System documentation template
     ├── project-context/        # READ-ONLY project-specific context and domain knowledge
     │   ├── README.md           # READ-ONLY folder explanation
-    │   └── domain-requirements-EXAMPLE.md  # ⚠️ EXAMPLE TEMPLATE: Contains placeholder "Acme Webshop" data - create your own domain-requirements.md
+    │   └── domain-requirements-EXAMPLE.md  # ⚠️ EXAMPLE: Placeholder file that can be safely deleted - create your own project-context files
     ├── WORKFLOW.md             # Workflow patterns
     ├── DECISIONS.md            # Decision log template
     ├── QUALITY_STANDARDS.md    # Quality standards and validation criteria
-    ├── TROUBLESHOOTING.md      # Common issues and solutions
     ├── agents/                 # Agent specifications
     │   ├── THINKING_BUDDY.md
     │   ├── CODING_BUDDY.md
@@ -280,6 +298,7 @@ context-management-bootstrap/
 **This might look like overkill, but the separation has a clear purpose:**
 
 **The Problem with One Agent:**
+
 - Single agent mixes requirements and implementation thinking
 - Tends to jump to solutions before fully understanding the problem
 - No clear checkpoint for user review before execution
@@ -290,18 +309,21 @@ context-management-bootstrap/
 **The Solution: Two Agents with Clear Boundaries**
 
 **THINKING_BUDDY (TB):**
+
 - **Owns:** Intent, requirements, scope, decisions
 - **Focus:** "What" and "Why" - understanding the problem completely
 - **Output:** Brief (executable specification)
 - **Stops:** After brief is created and approved
 
 **CODING_BUDDY (CB):**
+
 - **Owns:** Implementation quality, code execution
 - **Focus:** "How" - executing from the brief
 - **Input:** Brief (the contract)
 - **Stops:** After implementation is complete
 
 **Why This Works:**
+
 1. **Cognitive Separation:** Different mental models - TB thinks about problems, CB thinks about solutions
 2. **Quality Gate:** Brief serves as mandatory checkpoint - user reviews before execution
 3. **Scope Control:** CB can't expand scope (it's not in the brief) - prevents feature creep
@@ -310,12 +332,14 @@ context-management-bootstrap/
 6. **Documentation:** Brief is permanent record - what was requested, what was built
 
 **The Brief is the Contract:**
+
 - TB creates it (requirements)
 - You review it (approval)
 - CB executes it (implementation)
 - Brief documents it (history)
 
 **Without this separation:**
+
 - Agent guesses requirements while coding
 - No clear checkpoint for review
 - Scope expands during implementation
@@ -327,6 +351,7 @@ context-management-bootstrap/
 Briefs serve three critical functions:
 
 1. **Role Separation and Responsibility:**
+
    - TB owns intent, scope, and requirements (captured in brief)
    - CB owns implementation quality and execution (from brief)
    - Clear authority transfer: brief is the contract between roles
@@ -334,6 +359,7 @@ Briefs serve three critical functions:
    - Each role has clear ownership and accountability
 
 2. **User Review and Final Approval:**
+
    - Brief gives user opportunity to review before execution
    - User can approve, request changes, or cancel before CB starts
    - Final checkpoint before implementation begins
@@ -372,12 +398,14 @@ Briefs serve three critical functions:
 ## Tool-Agnostic Design
 
 This kit is designed to work with any AI assistant tool (Cursor, Claude Code, ChatGPT, etc.). It focuses on:
+
 - Role definitions and boundaries
 - Documentation structure and contracts
 - Workflow patterns and handoffs
 - Context management principles
 
 It does NOT prescribe:
+
 - Specific tools or platforms
 - Implementation technologies
 - Project structures
@@ -386,6 +414,7 @@ It does NOT prescribe:
 ## Maintenance
 
 See documentation update rules in `docs/WORKFLOW.md` for:
+
 - When USER_GUIDE is updated
 - When SYSTEM_SUMMARY is updated
 - When agent specs are updated
@@ -402,29 +431,30 @@ See the mapping table below for how concepts translate from the source system to
 
 This mapping shows how concepts from the source system (Nimbus) translate to the generic framework:
 
-| Source Concept | Generic Concept | Notes |
-|----------------|-----------------|-------|
-| CEO_BUDDY | CONTEXT_STEWARD | Renamed for tool-agnostic operational context management |
-| Nimbus | [Your Project Name] | System name is project-specific, not part of framework |
-| USER_GUIDE.md | USER_GUIDE.md | Same structure and purpose, generic content |
-| nimbus_system_summary_v1.md | SYSTEM_SUMMARY.md | Generic system summary template with changelog |
-| Linear integration | [External tool integration] | Integration pattern applies to any external tool |
-| flow commands | [Your CLI commands] | Command pattern and structure, not specific commands |
-| project brief | project brief | Same structure and purpose, tool-agnostic |
-| findings | findings | Same structure and purpose, system health analysis |
-| Claude Flow | [Agent orchestration] | Orchestration pattern, applies to any agent system |
-| Agency projects | [Project types] | Project type concept, customizable for your domain |
-| Task queue | [Work queue pattern] | Queue pattern for managing work items |
-| Brief processor | [Brief ingestion] | Pattern for processing structured inputs |
-| Agent swarms | [Agent teams] | Multi-agent collaboration pattern |
-| Hive Mind/ReasoningBank | [Shared memory] | Shared context pattern, tool-agnostic |
-| Voice inbox | [Input capture] | Input processing pattern, customizable |
-| LaunchDaemon | [Background service] | Service pattern, platform-specific |
-| Mac mini deployment | [Headless deployment] | Deployment pattern, platform-agnostic |
-| iMessage notifications | [Notification channel] | Notification pattern, channel-agnostic |
-| SPARC methodology | [Development methodology] | Methodology is project-specific, not part of framework |
+| Source Concept              | Generic Concept             | Notes                                                    |
+| --------------------------- | --------------------------- | -------------------------------------------------------- |
+| CEO_BUDDY                   | CONTEXT_STEWARD             | Renamed for tool-agnostic operational context management |
+| Nimbus                      | [Your Project Name]         | System name is project-specific, not part of framework   |
+| USER_GUIDE.md               | USER_GUIDE.md               | Same structure and purpose, generic content              |
+| nimbus_system_summary_v1.md | SYSTEM_SUMMARY.md           | Generic system summary template with changelog           |
+| Linear integration          | [External tool integration] | Integration pattern applies to any external tool         |
+| flow commands               | [Your CLI commands]         | Command pattern and structure, not specific commands     |
+| project brief               | project brief               | Same structure and purpose, tool-agnostic                |
+| findings                    | findings                    | Same structure and purpose, system health analysis       |
+| Claude Flow                 | [Agent orchestration]       | Orchestration pattern, applies to any agent system       |
+| Agency projects             | [Project types]             | Project type concept, customizable for your domain       |
+| Task queue                  | [Work queue pattern]        | Queue pattern for managing work items                    |
+| Brief processor             | [Brief ingestion]           | Pattern for processing structured inputs                 |
+| Agent swarms                | [Agent teams]               | Multi-agent collaboration pattern                        |
+| Hive Mind/ReasoningBank     | [Shared memory]             | Shared context pattern, tool-agnostic                    |
+| Voice inbox                 | [Input capture]             | Input processing pattern, customizable                   |
+| LaunchDaemon                | [Background service]        | Service pattern, platform-specific                       |
+| Mac mini deployment         | [Headless deployment]       | Deployment pattern, platform-agnostic                    |
+| iMessage notifications      | [Notification channel]      | Notification pattern, channel-agnostic                   |
+| SPARC methodology           | [Development methodology]   | Methodology is project-specific, not part of framework   |
 
 **Key Generalizations:**
+
 - All tool-specific references removed (Linear, Gmail, Claude Flow, etc.)
 - Platform-specific details removed (Mac mini, LaunchDaemon, etc.)
 - Domain-specific concepts generalized (Agency → project types)
@@ -433,4 +463,3 @@ This mapping shows how concepts from the source system (Nimbus) translate to the
 ## License
 
 This bootstrap kit is provided as-is. Adapt it to your needs.
-

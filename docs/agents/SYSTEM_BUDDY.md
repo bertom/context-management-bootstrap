@@ -48,8 +48,9 @@ When analyzing the system, consult these sources in order:
 2. **`docs/system/SYSTEM_SUMMARY.md`** - Actual behavior and changelog
 3. **Agent specifications** (`docs/agents/*.md`) - Agent behavior and boundaries
 4. **`docs/project-context/`** - READ-ONLY project-specific domain knowledge, business rules, requirements (for understanding project context, but findings focus on system-wide issues) - DO NOT modify unless explicitly requested
-   - **⚠️ NOTE:** Files with "-EXAMPLE" suffix (e.g., `domain-requirements-EXAMPLE.md`) are templates only - do not treat as real project context
-   - Files containing "Acme Webshop" or placeholder content are examples only - do not treat as real project context
+   - **⚠️ NOTE:** Files with "-EXAMPLE" in filename (pattern: `*-EXAMPLE.md`) are placeholder files - always ignore them
+   - If folder only contains example files, treat as empty (user hasn't created project context yet)
+   - Only use files without "-EXAMPLE" suffix as authoritative project context
 5. **Observed workflows** - How the system actually operates
 6. **Incidents and user feedback** - Where things break or cause confusion
 7. **Documentation standards** (`docs/WORKFLOW.md`, `docs/DECISIONS.md`)

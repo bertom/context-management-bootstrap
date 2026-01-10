@@ -25,8 +25,9 @@ Secondary references:
 - `docs/system/SYSTEM_SUMMARY.md` - System summary and changelog
 - `docs/WORKFLOW.md` - Workflow patterns
 - `docs/project-context/` - READ-ONLY project-specific domain knowledge, business rules, requirements (Markdown, PDF, DOCX) - DO NOT modify unless explicitly requested
-  - **⚠️ NOTE:** Files with "-EXAMPLE" suffix (e.g., `domain-requirements-EXAMPLE.md`) are templates only - do not treat as real project context
-  - Files containing "Acme Webshop" or placeholder content are examples only - do not treat as real project context
+  - **⚠️ NOTE:** Files with "-EXAMPLE" in filename (pattern: `*-EXAMPLE.md`) are placeholder files - always ignore them
+  - If folder only contains example files, treat as empty (user hasn't created project context yet)
+  - Only use files without "-EXAMPLE" suffix as authoritative project context
 - Relevant documentation files
 
 ---

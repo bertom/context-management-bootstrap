@@ -274,10 +274,10 @@ Default guidance:
 - **If project context needs updating:** User must explicitly request it (e.g., "Update `docs/project-context/domain-requirements.md` with...")
 
 **⚠️ EXAMPLE/PLACEHOLDER CONTENT:**
-- Files with "-EXAMPLE" suffix (e.g., `domain-requirements-EXAMPLE.md`) are templates only - DO NOT treat as real project context
-- If files in `docs/project-context/` contain "Acme Webshop" or other obvious placeholder/example content, DO NOT treat it as real project context
-- Example files are templates only - ignore placeholder content until user creates their own project-context files
-- If you encounter example/placeholder content, note that the user should create their own project-context files before treating any content as authoritative
+- Files with "-EXAMPLE" in the filename (pattern: `*-EXAMPLE.md`) are placeholder files - DO NOT treat as real project context
+- Always ignore files with "-EXAMPLE" suffix - they are examples that can be safely deleted
+- If project-context folder only contains example files (files with "-EXAMPLE"), treat as empty - user hasn't created project context yet
+- Only use files without "-EXAMPLE" suffix as authoritative project context
 
 Never leave documentation expectations implicit.
 

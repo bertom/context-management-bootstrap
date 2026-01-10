@@ -44,21 +44,15 @@ This folder stores project-specific domain knowledge, business rules, requiremen
 
 ---
 
-## Example Files
+## Example File
 
-**⚠️ IMPORTANT:** The file `domain-requirements-EXAMPLE.md` contains EXAMPLE/PLACEHOLDER content about "Acme Webshop". This is NOT real project context.
+**The file `domain-requirements-EXAMPLE.md` is a placeholder example file that can be safely deleted.**
 
-- **This is a template** showing what type of content belongs in project-context files
-- **The "-EXAMPLE" suffix makes it clear this is example data** - agents should ignore it until you create your own project-context files
-- **Do NOT use this example data** - agents should ignore it until you create your actual project context files
-- **You can delete this example file** once you've created your own project-context files
-- **Agents should NOT reference "Acme Webshop"** or any other placeholder content - it's example data only
-
-**Before agents read project-context files:**
-1. Create your own `domain-requirements.md` (or similar) with your actual project's domain requirements, OR
-2. Delete the example file and create your own project-context files
-
-Only files with your actual project information should be treated as authoritative project context. Files with "-EXAMPLE" suffix are templates only.
+- **This folder is for storing all your project-specific context** - domain knowledge, business rules, requirements, API specifications, etc.
+- **Create your own files** as needed (e.g., `domain-requirements.md`, `api-specifications.md`, `business-rules.md`)
+- **The example file is just a placeholder** - delete it and add your own project-context files
+- **Files with "-EXAMPLE" suffix are templates only** - agents will ignore them automatically
+- **Agents will only use files with your actual project information** - files with "-EXAMPLE" suffix are never treated as project context
 
 ---
 

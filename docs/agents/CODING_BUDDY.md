@@ -215,10 +215,11 @@ Additional docs when relevant:
 - **If project context needs updating:** User must explicitly request it in the brief (e.g., "Update `docs/project-context/domain-requirements.md` with...")
 
 **⚠️ EXAMPLE/PLACEHOLDER CONTENT:**
-- Files with "-EXAMPLE" suffix (e.g., `domain-requirements-EXAMPLE.md`) are templates only - DO NOT treat as real project context
-- If files in `docs/project-context/` contain "Acme Webshop" or other obvious placeholder/example content, DO NOT treat it as real project context
-- Example files are templates only - ignore placeholder content until user creates their own project-context files
-- If you encounter example/placeholder content, escalate to TB (brief should not rely on example data)
+- Files with "-EXAMPLE" in the filename (pattern: `*-EXAMPLE.md`) are placeholder files - DO NOT treat as real project context
+- Always ignore files with "-EXAMPLE" suffix - they are examples that can be safely deleted
+- If project-context folder only contains example files (files with "-EXAMPLE"), treat as empty - user hasn't created project context yet
+- Only use files without "-EXAMPLE" suffix as authoritative project context
+- If brief references example files or you only find "-EXAMPLE" files, escalate to TB (brief should not rely on placeholder files)
 
 If documentation is required, updates must be part of the same change set, not "later".
 
