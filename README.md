@@ -1,6 +1,6 @@
 # Context Management Bootstrap Kit
 
-**Version:** 1.1  
+**Version:** 1.2  
 **Last Updated:** 2026-01-10  
 **Purpose:** Reusable context management framework for AI-assisted development environments
 
@@ -172,6 +172,8 @@ The example file `docs/project-context/domain-requirements-EXAMPLE.md` is a plac
    - Use System Buddy for periodic reviews (System Buddy will proactively suggest weekly/monthly reviews)
    - Use Context Steward for operational guidance
    - **Remember:** Manual edits are OK, but sync with agents afterward via catch-up briefs
+
+**Optional:** If you prefer not to commit working files (`work/`) and project-specific documentation (`docs/`) to your repository, you can add them to `.gitignore`. See `SETUP.md` Step 2 for guidance.
 
 ---
 

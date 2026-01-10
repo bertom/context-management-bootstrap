@@ -1,7 +1,7 @@
 # Setup Guide
 
-**Version:** 1.0  
-**Last Updated:** 2026-01-09  
+**Version:** 1.1  
+**Last Updated:** 2026-01-10  
 **Purpose:** Step-by-step setup instructions for the context management bootstrap kit
 
 ---
@@ -112,6 +112,38 @@ No manual directory creation is needed - the bootstrap kit includes all required
    - Include version and date headers (see example file)
 
 **Note:** Agents will read files in `docs/project-context/` when they need to understand business rules, domain constraints, integration requirements, or project-specific terminology. However, agents treat this folder as READ-ONLY and will NOT maintain or update files unless explicitly asked. Make sure this folder contains all relevant project context and keep it current manually.
+
+---
+
+### Optional: Configure .gitignore
+
+**If you prefer not to commit working files and project-specific documentation to your repository**, you can optionally add these directories to your `.gitignore`:
+
+```gitignore
+# Optional: Ignore working files and project-specific documentation
+# (These directories contain working files and project-specific content
+#  that you may prefer to keep local rather than commit to your repo)
+
+work/
+docs/
+```
+
+**Considerations:**
+
+- **`work/` directory:** Contains briefs and findings (working documents). These are useful for history but not required to be in git if you prefer local-only tracking.
+- **`docs/` directory:** Contains your project-specific documentation (`USER_GUIDE.md`, `SYSTEM_SUMMARY.md`, `DECISIONS.md`, `project-context/`). If you prefer to keep documentation local or manage it separately, you can ignore this.
+
+**When to ignore:**
+- You prefer to keep working files (briefs, findings) local only
+- You manage project documentation separately or prefer not to version it
+- You want a cleaner repository focused on code only
+
+**When NOT to ignore:**
+- You want full project history including briefs and findings
+- You collaborate with a team and want documentation versioned
+- You want agents to have access to historical context from git
+
+**Note:** This is optional. The framework works fine either way. The bootstrap kit itself tracks these directories because they contain framework documentation, but your project may have different needs.
 
 ---
 
