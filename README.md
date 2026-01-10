@@ -427,45 +427,6 @@ See documentation update rules in `docs/WORKFLOW.md` for:
 - When system prompts are updated
 - Who validates freshness
 
-## Concept Mapping
-
-See the mapping table below for how concepts translate from the source system to this generic framework.
-
----
-
-## Concept Mapping: Source System → Generic Framework
-
-This mapping shows how concepts from the source system (Nimbus) translate to the generic framework:
-
-| Source Concept              | Generic Concept             | Notes                                                    |
-| --------------------------- | --------------------------- | -------------------------------------------------------- |
-| CEO_BUDDY                   | CONTEXT_STEWARD             | Renamed for tool-agnostic operational context management |
-| Nimbus                      | [Your Project Name]         | System name is project-specific, not part of framework   |
-| USER_GUIDE.md               | USER_GUIDE.md               | Same structure and purpose, generic content              |
-| nimbus_system_summary_v1.md | SYSTEM_SUMMARY.md           | Generic system summary template with changelog           |
-| Linear integration          | [External tool integration] | Integration pattern applies to any external tool         |
-| flow commands               | [Your CLI commands]         | Command pattern and structure, not specific commands     |
-| project brief               | project brief               | Same structure and purpose, tool-agnostic                |
-| findings                    | findings                    | Same structure and purpose, system health analysis       |
-| Claude Flow                 | [Agent orchestration]       | Orchestration pattern, applies to any agent system       |
-| Agency projects             | [Project types]             | Project type concept, customizable for your domain       |
-| Task queue                  | [Work queue pattern]        | Queue pattern for managing work items                    |
-| Brief processor             | [Brief ingestion]           | Pattern for processing structured inputs                 |
-| Agent swarms                | [Agent teams]               | Multi-agent collaboration pattern                        |
-| Hive Mind/ReasoningBank     | [Shared memory]             | Shared context pattern, tool-agnostic                    |
-| Voice inbox                 | [Input capture]             | Input processing pattern, customizable                   |
-| LaunchDaemon                | [Background service]        | Service pattern, platform-specific                       |
-| Mac mini deployment         | [Headless deployment]       | Deployment pattern, platform-agnostic                    |
-| iMessage notifications      | [Notification channel]      | Notification pattern, channel-agnostic                   |
-| SPARC methodology           | [Development methodology]   | Methodology is project-specific, not part of framework   |
-
-**Key Generalizations:**
-
-- All tool-specific references removed (Linear, Gmail, Claude Flow, etc.)
-- Platform-specific details removed (Mac mini, LaunchDaemon, etc.)
-- Domain-specific concepts generalized (Agency → project types)
-- Patterns preserved, implementations abstracted
-
 ## License
 
 This bootstrap kit is provided as-is. Adapt it to your needs.
