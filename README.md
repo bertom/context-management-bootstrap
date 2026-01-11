@@ -352,3 +352,9 @@ See documentation update rules in `docs/WORKFLOW.md` for:
 ## License
 
 This bootstrap kit is provided as-is. Adapt it to your needs.
+
+---
+
+## Need to Adjust the System?
+
+Want to customize workflows, adapt agent behaviors, or modify the framework? **Just ask CONTEXT_STEWARD—it's recommended.** The system will change itself. CONTEXT_STEWARD can update workflows, agent specs, and documentation to adapt the framework to your needs.
