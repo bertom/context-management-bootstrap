@@ -1,6 +1,6 @@
 # Workflow Patterns
 
-**Version:** 1.2  
+**Version:** 1.3  
 **Last Updated:** 2026-01-10  
 **Purpose:** Detailed workflow patterns and collaboration protocols
 
@@ -191,10 +191,12 @@ Briefs serve three critical functions:
 
 ### System Review (SYSTEM_BUDDY)
 
-SYSTEM_BUDDY can perform two types of reviews:
+**CRITICAL: SYSTEM_BUDDY performs TWO types of reviews, both with equal importance:**
 
 1. **System Health Review:** Focuses on code quality, architecture, dependencies, security, and overall system stability
 2. **Context Integrity Review:** Focuses on documentation consistency, agent spec alignment, terminology coherence, context drift, and mental model health
+
+**Both review types are core responsibilities of SYSTEM_BUDDY.** SYSTEM_BUDDY tracks last review dates for both types independently, proactively suggests both types, and performs both types of reviews. Neither review type is more important than the other - both are essential for system health.
 
 **Trigger:**
 
@@ -292,6 +294,8 @@ SYSTEM_BUDDY can perform two types of reviews:
 
 **Common scenario:** User sees code that looks wrong and wants to edit it manually - CONTEXT_STEWARD should check context first.
 
+**CRITICAL: CONTEXT_STEWARD does NOT perform reviews.** CONTEXT_STEWARD explains, guides, and clarifies. If reviews are needed, CONTEXT_STEWARD routes to SYSTEM_BUDDY (who performs all reviews).
+
 **Process:**
 
 1. CONTEXT_STEWARD understands user intent and identifies what needs clarification
@@ -302,9 +306,9 @@ SYSTEM_BUDDY can perform two types of reviews:
 6. CONTEXT_STEWARD helps users understand and adapt the toolkit to their needs
 7. CONTEXT_STEWARD provides clear, step-by-step guidance
 8. If implementation needed: routes to TB (not directly to CB)
-9. If system review needed: routes to SYSTEM_BUDDY
+9. **If system review needed: routes to SYSTEM_BUDDY** (CONTEXT_STEWARD does NOT perform reviews)
 10. CONTEXT_STEWARD can update documentation files and agent specs to clarify context or adapt the framework
-11. CONTEXT_STEWARD NEVER writes code or modifies project deliverables
+11. CONTEXT_STEWARD NEVER writes code, never modifies project deliverables, and NEVER performs reviews
 
 **Success Criteria:**
 

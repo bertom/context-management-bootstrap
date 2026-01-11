@@ -1,6 +1,6 @@
 # Context Management Bootstrap Kit
 
-**Version:** 1.4  
+**Version:** 1.5  
 **Last Updated:** 2026-01-10  
 **Purpose:** Reusable context management framework for AI-assisted development environments
 
@@ -212,8 +212,8 @@ context-management-bootstrap/
 
 - **THINKING_BUDDY**: Clarifies intent, creates execution briefs, **owns feature requirements**
 - **CODING_BUDDY**: Implements from briefs, **owns code and documentation maintenance**, enforces scope, validates quality gates
-- **SYSTEM_BUDDY**: **Owns system health** - observes, analyzes, identifies improvements, creates findings, proactively suggests system health reviews and context integrity reviews
-- **CONTEXT_STEWARD**: **Owns context health** - guides toolkit usage, clarifies project context, explains why things happen, helps adapt framework to your needs (never writes code, can update documentation)
+- **SYSTEM_BUDDY**: **Owns system health and performs ALL reviews** - observes, analyzes, identifies improvements, creates findings. Performs two equally important review types: (1) System Health Reviews (code quality, architecture, dependencies, security), and (2) Context Integrity Reviews (documentation consistency, agent spec alignment, terminology coherence). Tracks last review dates for both types independently and proactively suggests both types.
+- **CONTEXT_STEWARD**: **Owns context health (guidance only)** - guides toolkit usage, clarifies project context, explains why things happen, helps adapt framework to your needs. Can update documentation and agent specs to clarify context, but does NOT perform reviews (routes review requests to SYSTEM_BUDDY). Never writes code, focuses on explanation and guidance.
 
 ### Why Two Agents? (TB and CB)
 
