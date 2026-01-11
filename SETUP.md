@@ -8,7 +8,7 @@
 
 ## Prerequisites
 
-- An AI assistant tool (This kit is optimized for Cursor)
+- An AI assistant tool (This kit is optimized for [Cursor](https://cursor.com/downloads))
 - A project repository or workspace
 - Basic familiarity with markdown and documentation
 - **Willingness to let agents write code** (critical mindset shift - see RULES.md)
@@ -157,17 +157,17 @@ Use THINKING_BUDDY to automatically customize the templates through a guided int
 
    - `docs/system/SYSTEM_SUMMARY.md` - Already in correct location (no copy needed)
    - `docs/USER_GUIDE.md` - Already in correct location
-
+   
    If you need to move files to a different structure, do so before starting the customization process.
 
 2. **Start THINKING_BUDDY with the setup prompt:**
-
+   
    **Option 1:** Copy the setup prompt from `docs/prompts/setup-thinking-buddy.txt` and paste it as your first message to THINKING_BUDDY
-
+   
    **Option 2:** Start a new conversation with THINKING_BUDDY using the regular start prompt (`docs/prompts/system-thinking-buddy.txt`), then say:
-
+   
    "Help me customize the bootstrap kit templates for my project. I need to populate USER_GUIDE.md and SYSTEM_SUMMARY.md with information about [project name]."
-
+   
    THINKING_BUDDY will recognize this as a template customization task and proceed with the interview.
 
 3. **Answer THINKING_BUDDY's questions:**
