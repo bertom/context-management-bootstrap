@@ -152,7 +152,7 @@ Briefs serve three critical functions:
 6. CB touches only explicitly allowed files
 7. CB follows testing, documentation, commit, and versioning rules from brief
 8. CB updates SYSTEM_SUMMARY.md changelog:
-   - Add entry with brief summary and brief reference
+   - Add entry with brief summary and brief reference (point to archived location: `work/briefs/archive/YYYY-MM-DD_name_brief.md`)
    - If brief contains "System-Level Decisions" section: Extract decisions, trade-offs, and rationale to SYSTEM_SUMMARY changelog entry
    - If brief does NOT contain system-level decisions: Omit "System-Level Decisions" section or state "No system-level decisions - standard implementation"
 9. CB adds Implementation Notes section to brief

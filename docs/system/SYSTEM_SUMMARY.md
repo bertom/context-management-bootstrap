@@ -15,14 +15,17 @@
 This document maintains a complete history of all changes, updates, and improvements. Each entry includes: what changed (brief summary), reference to the brief for implementation details, and system-level decisions/rationale (if applicable).
 
 **Documentation Approach:**
+
 - **Brief-level details:** Implementation specifics are documented in briefs (see "Brief Reference" in each entry)
 - **System-level decisions:** Trade-offs, architectural decisions, and rationale that affect the system are documented here
 - This avoids duplication: briefs contain detailed "what" and "why", SYSTEM_SUMMARY focuses on system-wide impact and architectural decisions
 
 ### Version 1.0 - 2026-01-09
+
 **Status:** Initial System Summary
 
 **What Changed:**
+
 - Initialized system summary for [YOUR PROJECT NAME]
 - Established changelog structure
 - Documented initial architecture and components
@@ -30,6 +33,7 @@ This document maintains a complete history of all changes, updates, and improvem
 **Brief Reference:** [N/A - Initial setup]
 
 **System-Level Decisions:**
+
 - Decision: Established SYSTEM_SUMMARY.md as living documentation that tracks system-level decisions
 - Rationale: Need a single source of truth for system state that aggregates architectural decisions over time, separate from implementation details in briefs
 - Impact: Enables tracking architectural evolution and decision rationale without duplicating brief content
@@ -54,7 +58,7 @@ This document maintains a complete history of all changes, updates, and improvem
 
 ### Purpose
 
-[YOUR PROJECT NAME] is [describe your project's purpose and what it does]. 
+[YOUR PROJECT NAME] is [describe your project's purpose and what it does].
 
 **Example (Webshop):**
 Acme Webshop is an e-commerce platform that enables online retail sales. It provides product catalog management, shopping cart functionality, checkout processing, order management, and customer account features.
@@ -104,6 +108,7 @@ Acme Webshop is an e-commerce platform that enables online retail sales. It prov
 [Replace with your actual tech stack:]
 
 **Frontend:**
+
 - React 18.x
 - TypeScript
 - Tailwind CSS
@@ -111,6 +116,7 @@ Acme Webshop is an e-commerce platform that enables online retail sales. It prov
 - Axios for API calls
 
 **Backend:**
+
 - Node.js 20.x
 - Express.js
 - TypeScript
@@ -118,10 +124,12 @@ Acme Webshop is an e-commerce platform that enables online retail sales. It prov
 - JWT authentication
 
 **Database:**
+
 - PostgreSQL 15
 - Redis for caching
 
 **Services:**
+
 - Stripe API for payments
 - SendGrid for transactional emails
 - AWS S3 for product images
@@ -149,12 +157,14 @@ Acme Webshop is an e-commerce platform that enables online retail sales. It prov
 **Purpose:** Manage and display product information to customers
 
 **Components:**
+
 - Product database schema (products, categories, variants, images)
 - Product search and filtering (full-text search, category filters, price range)
 - Product detail pages with reviews and ratings
 - Product recommendation engine
 
 **API Endpoints:**
+
 - `GET /api/products` - List products with filters
 - `GET /api/products/:id` - Get product details
 - `GET /api/products/search` - Search products
@@ -165,12 +175,14 @@ Acme Webshop is an e-commerce platform that enables online retail sales. It prov
 **Purpose:** Manage customer shopping carts and cart persistence
 
 **Components:**
+
 - Cart session management (guest and authenticated users)
 - Cart calculations (subtotal, tax, shipping, discounts)
 - Cart persistence across sessions
 - Cart item quantity management
 
 **API Endpoints:**
+
 - `GET /api/cart` - Get current cart
 - `POST /api/cart/items` - Add item to cart
 - `PUT /api/cart/items/:id` - Update cart item
@@ -182,12 +194,14 @@ Acme Webshop is an e-commerce platform that enables online retail sales. It prov
 **Purpose:** Process orders and handle payments
 
 **Components:**
+
 - Order creation workflow
 - Address validation
 - Payment processing via Stripe
 - Order confirmation and email notifications
 
 **API Endpoints:**
+
 - `POST /api/checkout` - Create order
 - `POST /api/payments/process` - Process payment
 - `GET /api/orders/:id` - Get order details
@@ -203,6 +217,7 @@ Acme Webshop is an e-commerce platform that enables online retail sales. It prov
 ### Core Entities
 
 **Product:**
+
 - id, name, description, sku
 - price, compareAtPrice, cost
 - inventoryQuantity, trackInventory
@@ -211,6 +226,7 @@ Acme Webshop is an e-commerce platform that enables online retail sales. It prov
 - status (active/inactive/draft)
 
 **Order:**
+
 - id, orderNumber, userId
 - status (pending/processing/shipped/delivered/cancelled)
 - subtotal, tax, shipping, discount, total
@@ -219,12 +235,14 @@ Acme Webshop is an e-commerce platform that enables online retail sales. It prov
 - createdAt, updatedAt
 
 **Cart:**
+
 - sessionId, userId (nullable)
 - items (array of cart items)
 - couponCode, discountAmount
 - expiresAt
 
 **User:**
+
 - id, email, passwordHash
 - firstName, lastName
 - phone, addresses (array)
@@ -242,11 +260,13 @@ Acme Webshop is an e-commerce platform that enables online retail sales. It prov
 3. Update both fields BEFORE or DURING the edit
 
 **Changelog Entries:**
+
 - Every system change gets a changelog entry
 - Format: Version, Date, Status, What Changed, Why, Impact
 - Entries are chronological (newest first)
 
 **Validation:**
+
 - SYSTEM_BUDDY validates documentation freshness
 - Operator reviews documentation periodically
 - Documentation drift is treated as system issue
@@ -299,17 +319,20 @@ Acme Webshop is an e-commerce platform that enables online retail sales. It prov
 [Replace with your actual dependencies:]
 
 **Runtime Dependencies:**
+
 - Node.js 20.x
 - PostgreSQL 15
 - Redis 7.x
 
 **External Services:**
+
 - Stripe API (payment processing)
 - SendGrid API (transactional emails)
 - AWS S3 (image storage)
 - CloudFront CDN (asset delivery)
 
 **Development Dependencies:**
+
 - TypeScript
 - Jest (testing)
 - ESLint (linting)
@@ -320,11 +343,13 @@ Acme Webshop is an e-commerce platform that enables online retail sales. It prov
 [Replace with your actual deployment information:]
 
 **Environments:**
+
 - Development (local)
 - Staging (staging.example.com)
 - Production (example.com)
 
 **Deployment Process:**
+
 1. Code merged to main branch
 2. Automated tests run
 3. Build artifacts created
@@ -335,6 +360,7 @@ Acme Webshop is an e-commerce platform that enables online retail sales. It prov
 8. Post-deployment verification
 
 **Infrastructure:**
+
 - Frontend: Vercel/Netlify
 - Backend: AWS ECS/Docker containers
 - Database: AWS RDS PostgreSQL
@@ -347,6 +373,7 @@ Acme Webshop is an e-commerce platform that enables online retail sales. It prov
 > **Note for Agents:** When updating this document, you MUST add a changelog entry for every change to [YOUR PROJECT NAME].
 
 **When to add entry:**
+
 - Any system behavior change
 - Architecture changes
 - New features added
@@ -355,33 +382,41 @@ Acme Webshop is an e-commerce platform that enables online retail sales. It prov
 - Dependency updates
 
 **Entry format:**
+
 ```markdown
 ### Version X.Y - YYYY-MM-DD
+
 **Status:** [Enhancement | Fix | Redesign | Breaking]
 
 **What Changed:**
+
 - [Brief summary of what changed - concise, high-level]
 
 **Brief Reference:**
+
 - Brief: `work/briefs/archive/YYYY-MM-DD_name_brief.md`
 - For detailed implementation context, decisions, and rationale, see the brief (brief is archived after implementation)
 
 **System-Level Decisions:** (Only if brief contains "System-Level Decisions" section)
+
 - Decision: [What system-level decision was made]
 - Trade-off: [What was considered]
 - Rationale: [Why this decision - extracted from brief's System-Level Decisions section]
 - Impact: [How this affects system architecture/patterns/future work]
 
 **Impact:**
+
 - [What this affects - users, API, database, system architecture, etc.]
 
 **Files Modified:**
+
 - [List of files]
 ```
 
 **Note:** If brief does NOT contain system-level decisions (standard implementation), the "System-Level Decisions" section can be omitted or state: "No system-level decisions - standard implementation."
 
 **Documentation Updates:**
+
 - Update USER_GUIDE.md if user-facing behavior changes
 - Update this document for all changes
 - Keep entries factual and clear
@@ -396,4 +431,3 @@ Acme Webshop is an e-commerce platform that enables online retail sales. It prov
 - Maintain changelog discipline (every change gets entry)
 - Keep entries factual and clear
 - Use this as single source of truth for system state
-
