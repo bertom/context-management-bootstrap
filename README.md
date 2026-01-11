@@ -28,6 +28,8 @@ The **Context Management Bootstrap Kit** is a framework that helps you work effe
 
 2. **Start working on your project:** Tell THINKING_BUDDY how you want to start. They'll ask clarifying questions and create a detailed "brief" of the feature/change (executable specification) for you to review.
 
+   > **Note:** The system doesn't have much context yet and isn't sure which direction you want to go. Give it a few tries—it will learn. Trust it and remember: more context → better results.
+
 3. **Review and approve:** You review the brief before any code is written. This is your checkpoint to ensure everything is correct.
 
 4. **Implementation:** CODING_BUDDY takes the approved brief and implements it, following quality standards and updating documentation automatically.
