@@ -1,6 +1,6 @@
 # Project Brief: [Project Name]
 
-**Version:** 1.0  
+**Version:** 1.1  
 **Last Updated:** 2026-01-10  
 **Purpose:** Template for creating project execution briefs
 
@@ -61,6 +61,7 @@
 - [ ] Criterion 3: [Verifiable result] - Verification method: [How to verify]
 
 **Quality Gates (CB will validate all before closure):**
+
 - [ ] All acceptance criteria met and verified
 - [ ] Code quality standards satisfied
 - [ ] Tests pass and coverage adequate
@@ -134,6 +135,24 @@
 
 ---
 
+## System-Level Decisions (If Applicable)
+
+[**When to include:** Only include this section if the brief contains decisions, trade-offs, or rationale that affect system architecture, design patterns, or overall system behavior (beyond just this implementation). If this is a simple implementation without system-level implications, skip this section or state: "No system-level decisions - standard implementation."]
+
+[**Purpose:** This section documents decisions, trade-offs, and rationale that should be preserved in SYSTEM_SUMMARY.md for system-wide context. CB will extract this content to SYSTEM_SUMMARY.md changelog entry.]
+
+**System-Level Decisions:**
+
+- Decision 1: [What decision was made] - Trade-off: [What was considered] - Rationale: [Why this decision]
+- Decision 2: [Another system-level decision] - Trade-off: [Considerations] - Rationale: [Why]
+
+**Why This Matters System-Wide:**
+[Brief explanation of how these decisions affect the overall system architecture, patterns, or future work]
+
+[**If no system-level decisions:** State: "No system-level decisions - implementation follows existing patterns."]
+
+---
+
 ## Handoff Note for CODING_BUDDY
 
 [Brief note from THINKING_BUDDY to CODING_BUDDY. Should summarize key points and any special considerations.]
@@ -150,15 +169,19 @@ CB: [Direct note about implementation approach, potential gotchas, or important 
 **Implemented By:** CODING_BUDDY
 
 ### What Was Implemented
+
 [Summary of what was actually implemented]
 
 ### Deviations and Why
+
 [Any deviations from the brief and why they were necessary. If no deviations, state: "No deviations from brief."]
 
 ### Files Changed
+
 - [List of files that were modified or created]
 
 ### Follow-up Risks or Suggestions
+
 [Any risks introduced, follow-up work needed, or suggestions for future improvements. If none, state: "No follow-up risks or suggestions."]
 
 ---
@@ -166,4 +189,3 @@ CB: [Direct note about implementation approach, potential gotchas, or important 
 ## Notes
 
 [Any additional context, special considerations, or open questions. This section is optional and can be left blank if not needed.]
-

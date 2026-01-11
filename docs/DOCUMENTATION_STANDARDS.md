@@ -1,6 +1,6 @@
 # Documentation Standards and Maintenance Guidelines
 
-**Version:** 1.1  
+**Version:** 1.2  
 **Last Updated:** 2026-01-10  
 **Purpose:** Comprehensive standards and guidelines for documentation creation, maintenance, and quality
 
@@ -142,10 +142,15 @@ Documentation is a critical component of context management. Accurate, current, 
      - Version number
      - Date (YYYY-MM-DD)
      - Status: Enhancement/Fix/Redesign/Breaking
-     - What changed (concise description)
-     - Why changed (rationale)
+     - What changed (brief summary - concise, high-level)
+     - Brief reference (link to archived brief for detailed implementation context)
+     - System-level decisions (if brief contains "System-Level Decisions" section - extract decisions, trade-offs, rationale)
      - Impact (what this affects)
      - Files modified
+   - **Extraction from brief:**
+     - If brief has "System-Level Decisions" section: Extract to SYSTEM_SUMMARY changelog entry
+     - If brief does NOT have system-level decisions: Omit or state "No system-level decisions - standard implementation"
+     - Always include brief reference for detailed implementation context
    - Update relevant sections if system behavior changed
    - Update version and date in header
 
@@ -238,14 +243,28 @@ Documentation is a critical component of context management. Accurate, current, 
    
    **Status:** [Enhancement | Fix | Redesign | Breaking]
    
-   **What Changed:** [Concise description]
+   **What Changed:** [Brief summary - concise, high-level]
    
-   **Why Changed:** [Rationale or reference to brief/decision]
+   **Brief Reference:**
+   - Brief: `work/briefs/archive/YYYY-MM-DD_name_brief.md`
+   - For detailed implementation context, decisions, and rationale, see the brief (brief is archived after implementation)
    
-   **Impact:** [What this affects - users, agents, workflows, etc.]
+   **System-Level Decisions:** (Only if brief contains "System-Level Decisions" section)
+   - Decision: [What system-level decision was made - extract from brief]
+   - Trade-off: [What was considered - extract from brief]
+   - Rationale: [Why this decision - extract from brief]
+   - Impact: [How this affects system architecture/patterns/future work - extract from brief]
+   
+   **Impact:** [What this affects - users, agents, workflows, system architecture, etc.]
    
    **Files Modified:** [List of files changed]
    ```
+   
+   **Extraction Rules:**
+   - If brief has "System-Level Decisions" section: Extract decisions, trade-offs, and rationale to SYSTEM_SUMMARY changelog entry
+   - If brief does NOT have system-level decisions: Omit "System-Level Decisions" section or state: "No system-level decisions - standard implementation"
+   - Always include brief reference for detailed implementation context
+   - Briefs contain detailed "what" and "why" - SYSTEM_SUMMARY focuses on system-wide impact and architectural decisions
 
 2. **Relevant sections:** Update system behavior descriptions, architecture diagrams, workflow descriptions if changed
 

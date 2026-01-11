@@ -1,8 +1,8 @@
 # System Summary: [YOUR PROJECT NAME]
 
-**Version:** 1.0  
-**Last Updated:** 2026-01-09  
-**Purpose:** Living system documentation and changelog for [YOUR PROJECT NAME]
+**Version:** 1.1  
+**Last Updated:** 2026-01-10  
+**Purpose:** Living system documentation that tracks changes and documents system-level decisions, trade-offs, and rationale for [YOUR PROJECT NAME]. Briefs contain detailed implementation context - SYSTEM_SUMMARY focuses on system-wide impact and architectural decisions.
 
 > **⚠️ TEMPLATE:** This is a template. Replace "[YOUR PROJECT NAME]" with your actual project name (e.g., "Acme Webshop", "Mobile API", "Dashboard Service"). This document tracks changes to YOUR PROJECT, not the context management framework.
 
@@ -12,7 +12,12 @@
 
 ## Document Changelog
 
-This document maintains a complete history of all changes, updates, and improvements. Each entry includes the version, date, what changed, and why.
+This document maintains a complete history of all changes, updates, and improvements. Each entry includes: what changed (brief summary), reference to the brief for implementation details, and system-level decisions/rationale (if applicable).
+
+**Documentation Approach:**
+- **Brief-level details:** Implementation specifics are documented in briefs (see "Brief Reference" in each entry)
+- **System-level decisions:** Trade-offs, architectural decisions, and rationale that affect the system are documented here
+- This avoids duplication: briefs contain detailed "what" and "why", SYSTEM_SUMMARY focuses on system-wide impact and architectural decisions
 
 ### Version 1.0 - 2026-01-09
 **Status:** Initial System Summary
@@ -22,10 +27,12 @@ This document maintains a complete history of all changes, updates, and improvem
 - Established changelog structure
 - Documented initial architecture and components
 
-**Why:**
-- Foundation for tracking all [YOUR PROJECT NAME] changes
-- Single source of truth for system state
-- Enables informed decision-making
+**Brief Reference:** [N/A - Initial setup]
+
+**System-Level Decisions:**
+- Decision: Established SYSTEM_SUMMARY.md as living documentation that tracks system-level decisions
+- Rationale: Need a single source of truth for system state that aggregates architectural decisions over time, separate from implementation details in briefs
+- Impact: Enables tracking architectural evolution and decision rationale without duplicating brief content
 
 [Replace this entry with your actual first change when you start using this template]
 
@@ -353,18 +360,26 @@ Acme Webshop is an e-commerce platform that enables online retail sales. It prov
 **Status:** [Enhancement | Fix | Redesign | Breaking]
 
 **What Changed:**
-- [Specific change 1]
-- [Specific change 2]
+- [Brief summary of what changed - concise, high-level]
 
-**Why:**
-- [Reason for change]
+**Brief Reference:**
+- Brief: `work/briefs/archive/YYYY-MM-DD_name_brief.md`
+- For detailed implementation context, decisions, and rationale, see the brief (brief is archived after implementation)
+
+**System-Level Decisions:** (Only if brief contains "System-Level Decisions" section)
+- Decision: [What system-level decision was made]
+- Trade-off: [What was considered]
+- Rationale: [Why this decision - extracted from brief's System-Level Decisions section]
+- Impact: [How this affects system architecture/patterns/future work]
 
 **Impact:**
-- [What this affects - users, API, database, etc.]
+- [What this affects - users, API, database, system architecture, etc.]
 
 **Files Modified:**
 - [List of files]
 ```
+
+**Note:** If brief does NOT contain system-level decisions (standard implementation), the "System-Level Decisions" section can be omitted or state: "No system-level decisions - standard implementation."
 
 **Documentation Updates:**
 - Update USER_GUIDE.md if user-facing behavior changes

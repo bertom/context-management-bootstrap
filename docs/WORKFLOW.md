@@ -1,6 +1,6 @@
 # Workflow Patterns
 
-**Version:** 1.3  
+**Version:** 1.4  
 **Last Updated:** 2026-01-10  
 **Purpose:** Detailed workflow patterns and collaboration protocols
 
@@ -127,6 +127,7 @@ Briefs serve three critical functions:
 - Standards or processes to follow
 - Testing expectations (if applicable)
 - Documentation requirements
+- System-level decisions (if applicable - decisions/trade-offs affecting system architecture)
 - Handoff note for CB
 
 **Success Criteria:**
@@ -150,9 +151,13 @@ Briefs serve three critical functions:
 5. CB implements in as few iterations as possible
 6. CB touches only explicitly allowed files
 7. CB follows testing, documentation, commit, and versioning rules from brief
-8. CB adds Implementation Notes section to brief
-9. CB archives brief to `work/briefs/archive/`
-10. CB stops (task complete)
+8. CB updates SYSTEM_SUMMARY.md changelog:
+   - Add entry with brief summary and brief reference
+   - If brief contains "System-Level Decisions" section: Extract decisions, trade-offs, and rationale to SYSTEM_SUMMARY changelog entry
+   - If brief does NOT contain system-level decisions: Omit "System-Level Decisions" section or state "No system-level decisions - standard implementation"
+9. CB adds Implementation Notes section to brief
+10. CB archives brief to `work/briefs/archive/`
+11. CB stops (task complete)
 
 **Note:** Brief should be approved by user before CB starts. If brief status is "Ready for Review", wait for user approval.
 

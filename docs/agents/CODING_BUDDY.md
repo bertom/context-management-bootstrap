@@ -1,6 +1,6 @@
 # Agent Specification — CODING_BUDDY
 
-**Version:** 1.2  
+**Version:** 1.3  
 **Last Updated:** 2026-01-10  
 **Purpose:** Agent specification for CODING_BUDDY - Implementation execution from briefs
 
@@ -201,6 +201,10 @@ This section summarizes key requirements - see the full standards document for c
 
 **Default documentation targets when system behavior changes:**
 - `docs/system/SYSTEM_SUMMARY.md` - System summary and changelog (MANDATORY after implementation)
+  - Add changelog entry with brief summary and brief reference
+  - If brief contains "System-Level Decisions" section: Extract decisions, trade-offs, and rationale to SYSTEM_SUMMARY changelog entry
+  - If brief does NOT contain system-level decisions: Omit "System-Level Decisions" section or state "No system-level decisions - standard implementation"
+  - Briefs contain detailed implementation context - SYSTEM_SUMMARY focuses on system-wide impact and architectural decisions
 - `docs/USER_GUIDE.md` - User-facing guide (when user-facing behavior changes)
 
 **Additional docs when relevant:**

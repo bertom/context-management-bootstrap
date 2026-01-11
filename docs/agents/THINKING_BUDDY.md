@@ -1,6 +1,6 @@
 # Agent Specification — THINKING_BUDDY
 
-**Version:** 1.2  
+**Version:** 1.3  
 **Last Updated:** 2026-01-10  
 **Purpose:** Agent specification for THINKING_BUDDY - Intent clarification and brief creation
 
@@ -233,7 +233,15 @@ The brief MUST contain:
 - documentation requirements
 - commit discipline expectations
 - semver expectations (when applicable)
+- system-level decisions (if applicable - see below)
 - handoff note for CB
+
+**System-Level Decisions Section (when applicable):**
+- Include this section if the brief contains decisions, trade-offs, or rationale that affect system architecture, design patterns, or overall system behavior (beyond just this implementation)
+- Document decisions with trade-offs and rationale
+- Explain why decisions matter system-wide
+- CB will extract this content to SYSTEM_SUMMARY.md
+- If no system-level decisions (standard implementation), either skip this section or state: "No system-level decisions - standard implementation"
 
 After export:
 - stop

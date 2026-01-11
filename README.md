@@ -1,6 +1,6 @@
 # Context Management Bootstrap Kit
 
-**Version:** 1.5  
+**Version:** 1.6  
 **Last Updated:** 2026-01-10  
 **Purpose:** Reusable context management framework for AI-assisted development environments
 
@@ -306,7 +306,7 @@ Briefs serve three critical functions:
 ### Document Contracts
 
 - **USER_GUIDE.md**: How to use the system (updated when behavior changes)
-- **SYSTEM_SUMMARY.md**: Living documentation with changelog (updated after every change)
+- **SYSTEM_SUMMARY.md**: Living documentation that tracks system changes and system-level decisions (updated after every change, references briefs for implementation details, documents architectural decisions)
 - **Agent Specs**: Role definitions and boundaries (updated when behavior changes)
 - **System Prompts**: Prompt text that enforces roles (updated when roles change)
 
