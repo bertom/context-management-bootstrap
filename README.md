@@ -310,7 +310,7 @@ Briefs serve three critical functions:
 ### Document Contracts
 
 - **USER_GUIDE.md**: How to use the system (updated when behavior changes)
-- **SYSTEM_SUMMARY.md**: Living documentation that tracks system changes and system-level decisions (updated after every change, references briefs for implementation details, documents architectural decisions)
+- **SYSTEM_SUMMARY.md**: Living documentation that describes how the system you're building works from a user perspective - tracks system changes, documents system-level decisions, and safeguards understanding of the system's behavior (updated after every change, references briefs for implementation details)
 - **Agent Specs**: Role definitions and boundaries (updated when behavior changes)
 - **System Prompts**: Prompt text that enforces roles (updated when roles change)
 
