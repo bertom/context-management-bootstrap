@@ -50,6 +50,8 @@ The **Context Management Bootstrap Kit** is a framework that helps you work effe
 
 3. **Start using it** - Ask THINKING_BUDDY to create a brief for your first feature, review it, then have CODING_BUDDY implement it.
 
+4. **Get help and maintain quality** - Ask CONTEXT_STEWARD questions about workflows, agent behavior, or how to adapt the framework. SYSTEM_BUDDY proactively reviews your system health and context integrity, suggesting improvements when needed.
+
 That's the basics! For detailed setup instructions, see `SETUP.md`. For troubleshooting, see `docs/TROUBLESHOOTING.md`.
 
 ---
