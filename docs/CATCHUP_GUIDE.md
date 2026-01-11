@@ -77,7 +77,7 @@ const email = getUserEmail(); // was: const userEmail = getUserEmail();
 **Step 2: Request catch-up**
 
 ```
-You: "I manually renamed `userEmail` to `email` in auth.js.
+You: "I manually renamed `userEmail` to `email` in auth.js. 
       Can you create a catch-up brief to sync this change?"
 ```
 

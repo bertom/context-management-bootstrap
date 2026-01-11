@@ -16,7 +16,7 @@ This document defines explicit workflow patterns for agent collaboration. These 
 
 ### Brief Creation (THINKING_BUDDY)
 
-**Trigger:**
+**Trigger:** 
 
 - User provides vague or incomplete requirement
 - User requests catch-up after manual edits
@@ -203,7 +203,7 @@ Briefs serve three critical functions:
 
 **Both review types are core responsibilities of SYSTEM_BUDDY.** SYSTEM_BUDDY tracks last review dates for both types independently, proactively suggests both types, and performs both types of reviews. Neither review type is more important than the other - both are essential for system health.
 
-**Trigger:**
+**Trigger:** 
 
 - Manual invocation (periodic review) or specific issue investigation - user specifies review type
 - **Proactive suggestion:** SYSTEM_BUDDY should suggest both review types independently when >7 days (weekly light) or >30 days (monthly deep) since last review of that type
