@@ -32,7 +32,9 @@ The **Context Management Bootstrap Kit** is a framework that helps you work effe
 
 4. **Implementation:** CODING_BUDDY takes the approved brief and implements it, following quality standards and updating documentation automatically.
 
-5. **Ongoing maintenance:** SYSTEM_BUDDY proactively reviews your system health and suggests improvements. CONTEXT_STEWARD helps you understand what's happening when things are unclear.
+5. **Ongoing maintenance:** 
+   - **SYSTEM_BUDDY** proactively reviews your system health and suggests improvements
+   - **CONTEXT_STEWARD** helps you understand the system, answer questions about workflows, and explains why things happen - ask questions instead of reading all docs (this is the power of AI!)
 
 **That's it!** The framework handles the coordination, ensures quality gates are met, keeps documentation current, and prevents scope creep. You just provide direction and review checkpoints.
 
